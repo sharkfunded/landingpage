@@ -1,67 +1,50 @@
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import FixedStage from "@/components/FixedStage";
 import PricingSection from "@/components/PricingSection";
 import RewardsSection from "@/components/RewardsSection";
 import RewardsSectionTwo from "@/components/RewardsSectionTwo";
 
+import TestimonialsSection from "@/components/TestimonialsSection";
+
 export default function Home() {
   return (
-    <div className="relative w-full h-full min-h-screen bg-black">
+    <main className="relative w-full min-h-screen bg-black overflow-x-hidden">
       <div className="relative z-50">
         <TopBar />
         <Navbar />
       </div>
-      {/* 
-        Hero Stage: Scales independently (Fit Width)
-        Headers: Remain standard responsive (No Zoom)
-      */}
-      <FixedStage>
+
+      {/* Hero Section */}
+      <div className="relative w-full">
         <HeroSection />
+      </div>
 
-        {/* Pricing Section - Row 20 */}
-        <div
-          className="absolute z-20 w-full left-0"
-          style={{ top: "1900px" }}
-        >
-          <PricingSection />
-        </div>
+      {/* Pricing Section */}
+      {/* Added margin to separate from hero content (dashboard image) 
+          Dashboard hangs near Top: 95% of Hero (16:9). 
+          Hero Height = 56.25vw. 
+          Offset ~ 53vw. 
+          Using mt-[55vw] to clear it with buffer.
+      */}
+      <div className="relative w-full z-20 mt-[55vw]">
+        <PricingSection />
+      </div>
 
-        {/* Rewards Section Background Strip (3310px - 4800px) */}
-        <div
-          className="absolute z-10 w-full left-0 bg-white"
-          style={{
-            top: "3310px",
-            height: "1490px" // 4800 - 3310
-          }}
-        />
+      {/* Rewards Section with White Background */}
+      <div className="relative w-full bg-white z-10 py-24 md:py-32 mt-32">
+        <RewardsSection />
+      </div>
 
-        {/* Rewards Section - Row 33.1 */}
-        <div
-          className="absolute z-20 w-full left-0"
-          style={{ top: "3410px" }}
-        >
-          <RewardsSection />
-        </div>
+      {/* Rewards Section Two with Dark Background */}
+      <div className="relative w-full bg-[#00000A] z-20 py-24 md:py-32">
+        <RewardsSectionTwo />
+      </div>
 
-        {/* Rewards Section 2 Dark Background (Starts at 4800px) */}
-        <div
-          className="absolute z-10 w-full left-0 bg-[#00000A]"
-          style={{
-            top: "4800px",
-            height: "1500px" // Estimating height for now
-          }}
-        />
-
-        {/* Rewards Section Two (Flexible Payouts) - Dark Background */}
-        <div
-          className="absolute z-20 w-full left-0"
-          style={{ top: "4900px" }}
-        >
-          <RewardsSectionTwo />
-        </div>
-      </FixedStage>
-    </div>
+      {/* Testimonials Section */}
+      <div className="relative w-full bg-white z-20 pb-32">
+        <TestimonialsSection />
+      </div>
+    </main>
   );
 }

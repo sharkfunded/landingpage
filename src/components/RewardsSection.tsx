@@ -1,5 +1,5 @@
 import React from "react";
-import ElectricBorder from "./ElectricBorder";
+
 
 export default function RewardsSection() {
     return (
@@ -45,7 +45,7 @@ export default function RewardsSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16 w-full max-w-[1240px]">
 
                 {/* Card 1: Payout with Rise */}
-                <ElectricBorder color="#3B82F6" className="group rounded-[32px] h-full">
+                <div className="group rounded-[32px] h-full">
                     <div className="flex flex-col overflow-hidden rounded-[32px] h-full">
                         {/* Image Area - Equity Curve (Image Asset from User) */}
                         <div className="w-full h-[300px] flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#07081D] to-[#121778] p-6">
@@ -59,16 +59,30 @@ export default function RewardsSection() {
                         </div>
                         {/* Content */}
                         <div className="p-8 text-left bg-[#0C0D1F] flex-1">
-                            <h3 className="text-2xl text-white font-[family-name:var(--font-sora)] mb-3">Payout with Rise</h3>
-                            <p className="text-white/60 font-[family-name:var(--font-sora)] font-light text-sm leading-relaxed">
-                                Enjoy faster rewards with payouts requests handled in as little as two weeks. Enjoy faster rewards with payouts requests handled in as.
+                            <h3
+                                className="font-[family-name:var(--font-sora)] font-normal text-white leading-[1.118] mb-3"
+                                style={{
+                                    fontSize: 'clamp(24px, 2.5vw, 48.5px)',
+                                    letterSpacing: '-0.05em'
+                                }}
+                            >
+                                Payout with Wise
+                            </h3>
+                            <p
+                                className="font-[family-name:var(--font-sora)] font-extralight text-white leading-[1.35]"
+                                style={{
+                                    fontSize: 'clamp(14px, 1.3vw, 24.8px)',
+                                    letterSpacing: '-0.04em'
+                                }}
+                            >
+                                Our partnership with Rise ensures secure, reliable bank transfers— profits go straight to your account through their trusted infrastructure.
                             </p>
                         </div>
                     </div>
-                </ElectricBorder>
+                </div>
 
                 {/* Card 2: Payout with Wise */}
-                <ElectricBorder color="#3B82F6" className="group rounded-[32px] h-full">
+                <div className="group rounded-[32px] h-full">
                     <div className="flex flex-col overflow-hidden rounded-[32px] h-full">
                         {/* Image Area - Wise Transfer (Figma Asset) */}
                         <div className="w-full h-[300px] flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#07081D] to-[#121778] p-8">
@@ -88,10 +102,10 @@ export default function RewardsSection() {
                             </p>
                         </div>
                     </div>
-                </ElectricBorder>
+                </div>
 
                 {/* Card 3: Detailed Analytics */}
-                <ElectricBorder color="#3B82F6" className="group rounded-[32px] h-full">
+                <div className="group rounded-[32px] h-full">
                     <div className="flex flex-col overflow-hidden rounded-[32px] h-full">
                         {/* Image Area - Detailed Analytics (User Upload) */}
                         <div className="w-full h-[300px] flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#07081D] to-[#121778] p-6">
@@ -115,10 +129,10 @@ export default function RewardsSection() {
                             </p>
                         </div>
                     </div>
-                </ElectricBorder>
+                </div>
 
                 {/* Card 4: MT5 Platform */}
-                <ElectricBorder color="#3B82F6" className="group rounded-[32px] h-full">
+                <div className="group rounded-[32px] h-full">
                     <div className="flex flex-col overflow-hidden rounded-[32px] h-full">
                         {/* Image Area - MT5 Logo (SVG from User) */}
                         <div className="w-full h-[300px] flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#07081D] to-[#121778] p-8">
@@ -138,7 +152,7 @@ export default function RewardsSection() {
                             </p>
                         </div>
                     </div>
-                </ElectricBorder>
+                </div>
 
             </div>
 

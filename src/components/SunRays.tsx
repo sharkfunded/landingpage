@@ -2,7 +2,7 @@ import React from 'react';
 
 // Image from Figma node 107:261 ("R 3")
 // Cached URL from previous successful fetch
-const raysImage = "http://localhost:3845/assets/034cdb105f7ff69f100c67451babf16291e05aa0.png";
+const raysImage = "/assets/R3.png";
 
 export default function SunRays() {
     return (

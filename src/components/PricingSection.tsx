@@ -57,11 +57,11 @@ export default function PricingSection() {
             }}
         >
             {/* Jellyfish Background - Strictly Cols 11-12 (Right 16-20%) - Visual Head in R1 */}
-            <div className="absolute top-[-250px] right-0 w-[25%] h-[800px] pointer-events-none z-0 overflow-visible mix-blend-screen opacity-100">
+            <div className="absolute top-[-50%] right-0 w-[30%] h-[1200px] pointer-events-none z-0 overflow-visible mix-blend-screen opacity-100 hidden md:block">
                 <img
                     src="/assets/jellyfish.webp"
                     alt=""
-                    className="absolute top-0 right-0 w-full h-full object-contain object-top scale-[1.2] origin-top-right trnslate-x-[5%] translate-y-[-20%]"
+                    className="w-full h-full object-contain opacity-80"
                     loading="lazy"
                     decoding="async"
                 />
@@ -180,8 +180,8 @@ export default function PricingSection() {
 
                         {/* Controls: Prime/Lite Toggle - Moved to Table Header */}
                         {/* Data Grid Table */}
-                        <div className="w-full">
-                            <table className="w-full text-left border-collapse table-fixed">
+                        <div className="w-full overflow-x-auto pb-6"> {/* Added scroll wrapper with padding for scrollbar visibility */}
+                            <table className="w-full text-left border-collapse table-fixed min-w-[1000px]"> {/* Added min-width to force scroll and prevent squash */}
                                 <thead>
                                     <tr>
                                         <th className="p-4 w-[20%] text-left align-bottom pb-8">
