@@ -31,7 +31,7 @@ export default function IntercomWidget() {
                 ic("update", w.intercomSettings);
             } else {
                 var d = document;
-                var i = function () {
+                var i: any = function () {
                     i.c(arguments);
                 };
                 i.q = [];
