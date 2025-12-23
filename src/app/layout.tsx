@@ -3,6 +3,7 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import IntercomWidget from "@/components/IntercomWidget";
+import { Suspense } from "react";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -20,10 +21,6 @@ export const viewport = {
   maximumScale: 1,
 };
 
-
-
-// ... existing imports ...
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,7 +32,9 @@ export default function RootLayout({
         className={`${sora.variable} antialiased`}
       >
         <SmoothScroll />
-        <IntercomWidget />
+        <Suspense fallback={null}>
+          <IntercomWidget />
+        </Suspense>
         {children}
       </body>
     </html>
