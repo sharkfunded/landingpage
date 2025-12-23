@@ -164,9 +164,9 @@ export default function TestimonialsSection() {
                                 <div className="text-white/80 font-[family-name:var(--font-sora)] text-sm">
                                     {video.amount}
                                 </div>
-                                {/* Logo Icon (Placeholder) */}
+                                {/* Shark Logo */}
                                 <div className="absolute bottom-6 right-6 w-8 h-8 opacity-80">
-                                    <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L2 22h20L12 2zm0 4l6.5 13h-13L12 6z" /></svg>
+                                    <img src="/assets/shark-logo.svg" alt="SharkFunded Logo" className="w-full h-full brightness-0 invert" />
                                 </div>
                             </div>
                         </div>

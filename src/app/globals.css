@@ -61,13 +61,23 @@
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .animate-scroll-left {
@@ -76,6 +86,14 @@
 
 .animate-scroll-right {
   animation: scroll-right 30s linear infinite;
+}
+
+.animate-scroll-fast {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-fast-reverse {
+  animation: scroll-right 40s linear infinite;
 }
 
 :root {

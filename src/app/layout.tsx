@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import IntercomWidget from "@/components/IntercomWidget";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -32,6 +34,8 @@ export default function RootLayout({
       <body
         className={`${sora.variable} antialiased`}
       >
+        <SmoothScroll />
+        <IntercomWidget />
         {children}
       </body>
     </html>
