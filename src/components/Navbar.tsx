@@ -15,8 +15,8 @@ export default function Navbar() {
 
                 {/* Logo Group */}
                 <div className="flex items-center shrink-0" style={{ gap: 'clamp(8px, 1vw, 16px)' }}>
-                    <div className="relative" style={{ width: 'clamp(28px, 3vw, 48px)', height: 'clamp(28px, 3vw, 48px)' }}>
-                        <img src="/assets/shark-logo.svg" alt="SharkFunded Logo" className="w-full h-full object-contain" />
+                    <div className="relative shrink-0" style={{ height: 'clamp(28px, 3vw, 48px)' }}>
+                        <img src="/assets/shark-logo.svg" alt="SharkFunded Logo" className="h-full w-auto object-contain" />
                     </div>
                     <div
                         className="font-normal leading-none text-transparent bg-clip-text bg-[linear-gradient(173deg,#FFF_44.98%,#4B4B56_103.76%)]"
