@@ -26,7 +26,7 @@ export default function StickyHeader({ children }: StickyHeaderProps) {
         window.addEventListener("scroll", handleScroll);
         // Resize observer to update height if needed
         const ro = new ResizeObserver((entries) => {
-            for (constentry of entries) {
+            for (const entry of entries) {
                 setHeaderHeight(entry.contentRect.height);
             }
         });
@@ -47,8 +47,8 @@ export default function StickyHeader({ children }: StickyHeaderProps) {
             <div
                 ref={headerRef}
                 className={`z-[100] transition-all duration-300 ease-in-out ${isSticky
-                        ? "fixed top-0 left-0 w-full shadow-2xl bg-[#040822] animate-in fade-in slide-in-from-top-4 duration-300"
-                        : "relative w-full bg-transparent"
+                    ? "fixed top-0 left-0 w-full shadow-2xl bg-[#040822] animate-in fade-in slide-in-from-top-4 duration-300"
+                    : "relative w-full bg-transparent"
                     }`}
             >
                 {children}
