@@ -258,7 +258,7 @@ export default function FAQSection({ theme = 'light' }: FAQSectionProps) {
                         <div className="flex-1 w-full max-w-[600px] relative">
                             <ParallaxBlock offset={-30}>
                                 <img
-                                    src="/assets/Frame 2147225728 (1).png"
+                                    src="/assets/frame-cta.png"
                                     alt="Prop Trading Dashboard"
                                     className="w-full h-auto object-contain drop-shadow-2xl"
                                 />

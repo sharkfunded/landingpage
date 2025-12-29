@@ -63,7 +63,7 @@ export default function AffiliateRanks() {
                             commissions="10%"
                             perks="Instant Dashboard Access, 24H Payouts"
                             imagePlaceholder="Dashboard Preview"
-                            imageSrc="/assets/Frame 2147225728 (1).png"
+                            imageSrc="/assets/frame-cta.png"
                         />
                         <RankLevel
                             index={1}
