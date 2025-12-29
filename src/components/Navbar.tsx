@@ -255,7 +255,7 @@ export default function Navbar() {
                                 </AnimatePresence>
                             </div>
 
-                            <Link href="#" className="text-white/90 hover:text-white text-lg font-medium transition-colors">FAQs</Link>
+                            <Link href="https://intercom.help/sharkfunded/en" className="text-white/90 hover:text-white text-lg font-medium transition-colors">FAQs</Link>
                             <Link href="/reviews" className="text-white/90 hover:text-white text-lg font-medium transition-colors">Reviews</Link>
 
                             <div className="w-full pt-4 flex flex-col gap-3">

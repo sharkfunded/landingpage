@@ -83,6 +83,18 @@ export default function MobileRulesCard({ selectedChallenge, isPrime, data, sele
                         value = row[activePhase];
                     }
 
+                    // Special layout for Instruments row
+                    if (row.label === 'Instruments') {
+                        return (
+                            <div key={idx} className="flex flex-col items-center py-3 border-b border-white/5 last:border-0 gap-2">
+                                <span className="text-white/60 text-sm font-medium">{row.label}</span>
+                                <span className={`font-bold text-center text-sm leading-relaxed ${activePhase === 'funded' && !isInstant ? 'text-green-400' : 'text-white'}`}>
+                                    {value}
+                                </span>
+                            </div>
+                        );
+                    }
+
                     return (
                         <div key={idx} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
                             <span className="text-white/60 text-sm font-medium">{row.label}</span>

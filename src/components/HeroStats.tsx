@@ -44,7 +44,7 @@ const HeroStats = () => {
                 {/* Item 4: Minimum Trading Days - Hidden on tablets/laptops (md), shown on large desktops (lg+) */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left relative flex-1 md:hidden lg:flex lg:pl-6">
                     <span className="font-bold font-[family-name:var(--font-sora)] leading-[1.1] bg-gradient-to-b from-white to-[#0084FF] bg-clip-text text-transparent text-[16px] md:text-[17px] lg:text-[19px]" style={{ fontSize: 'clamp(16px, 1.6vw, 19px)' }}>
-                        No Minimumdays
+                        No Minimum
                     </span>
                     <span className="font-normal text-white leading-normal mt-1 text-[10px] md:text-[13px] lg:text-[15px]" style={{ fontSize: 'clamp(10px, 0.9vw, 15px)' }}>
                         Trading days

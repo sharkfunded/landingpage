@@ -96,6 +96,39 @@ export default function PricingSection() {
                         {/* --- MOBILE VIEW (RESTORED PILLS) --- */}
                         <div className="md:hidden w-full flex flex-col gap-6 items-center">
 
+                            {/* 0. NEW: Instruments Selector (Forex/Futures) */}
+                            <div className="w-full">
+                                <p className="text-white/60 text-xs uppercase tracking-wider font-bold text-center mb-3">Instruments</p>
+                                <div className="flex gap-3 w-full">
+                                    <button
+                                        onClick={() => setActiveTab('Forex')}
+                                        className={`flex-1 px-4 py-4 rounded-2xl border transition-all flex flex-col items-center gap-2
+                                            ${activeTab === 'Forex'
+                                                ? 'bg-[#1E233B] text-white border-blue-500/50 shadow-[0_0_15px_rgba(30,35,66,0.5)]'
+                                                : 'bg-[#0A0C1A] text-gray-500 border-white/5 hover:border-white/20'
+                                            }
+                                        `}
+                                    >
+                                        <span className="text-2xl">$</span>
+                                        <span className="text-sm font-bold">Forex</span>
+                                        <span className="text-[10px] text-white/60">Raw spreads</span>
+                                    </button>
+                                    <button
+                                        onClick={() => setActiveTab('Futures')}
+                                        className={`flex-1 px-4 py-4 rounded-2xl border transition-all flex flex-col items-center gap-2
+                                            ${activeTab === 'Futures'
+                                                ? 'bg-[#1E233B] text-white border-blue-500/50 shadow-[0_0_15px_rgba(30,35,66,0.5)]'
+                                                : 'bg-[#0A0C1A] text-gray-500 border-white/5 hover:border-white/20'
+                                            }
+                                        `}
+                                    >
+                                        <img src="/assets/futures_icon.webp" alt="Futures" className="w-6 h-6 object-contain opacity-80" />
+                                        <span className="text-sm font-bold">Futures</span>
+                                        <span className="text-[10px] text-white/40">Coming Soon</span>
+                                    </button>
+                                </div>
+                            </div>
+
                             {/* 1. Challenge Type Pills */}
                             <div className="flex flex-wrap justify-center gap-2 w-full">
                                 {filteredChallenges.map((c) => (
