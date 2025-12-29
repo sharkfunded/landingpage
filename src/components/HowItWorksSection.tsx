@@ -43,7 +43,7 @@ export default function HowItWorksSection({ showStats = true }: HowItWorksSectio
                                 <StaggerItem className="rounded-[40px] bg-black border border-white/5 p-6 flex flex-col items-center justify-center relative overflow-hidden min-h-[160px]">
                                     <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-blue-900/30 to-transparent opacity-80" />
                                     <h3 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-[#4B7CFF] mb-1 font-[family-name:var(--font-sora)] relative z-10">
-                                        2,892
+                                        100000+
                                     </h3>
                                     <p className="text-gray-400 text-sm font-[family-name:var(--font-sora)] relative z-10">
                                         Active Traders!

@@ -2,6 +2,7 @@
 import React from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
+import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 import FAQSection from "@/components/FAQSection";
@@ -14,8 +15,10 @@ export default function WhatIsPropTradingPage() {
             {/* Dashboard Card Container: Wraps Header & Hero */}
             <div className="relative w-[95%] max-w-[1800px] mx-auto mt-4 md:mt-8 bg-[#040822] rounded-[30px] md:rounded-[50px] overflow-hidden shadow-2xl border border-black/5">
                 <div className="relative z-50">
-                    <TopBar />
-                    <Navbar />
+                    <StickyHeader>
+                        <TopBar />
+                        <Navbar />
+                    </StickyHeader>
                 </div>
 
                 {/* Hero Section */}
@@ -99,7 +102,7 @@ export default function WhatIsPropTradingPage() {
                             {/* Right Card */}
                             <div className="flex-1 w-full max-w-[450px]">
                                 <div
-                                    className="relative rounded-[24px] min-h-[200px] md:min-h-[280px]"
+                                    className="relative rounded-[24px] min-h-[200px] md:min-h-[280px] overflow-hidden"
                                     style={{
                                         background: 'linear-gradient(135deg, #F9FCFB 0%, #CBE0F0 100%)'
                                     }}
@@ -107,7 +110,7 @@ export default function WhatIsPropTradingPage() {
                                     <img
                                         src="/assets/prop-firm-illustration.png"
                                         alt="Prop Firm Trading Illustration"
-                                        className="absolute left-[-30px] top-1/2 -translate-y-[75%] w-[450px] md:w-[550px] h-auto max-w-none"
+                                        className="absolute left-[50%] md:left-[-30px] top-1/2 -translate-x-1/2 md:translate-x-0 -translate-y-[65%] md:-translate-y-[75%] w-[95%] sm:w-[400px] md:w-[450px] lg:w-[550px] h-auto"
                                     />
                                 </div>
                             </div>

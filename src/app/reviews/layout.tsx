@@ -4,12 +4,12 @@ export const metadata: Metadata = {
     title: "Trader Reviews | SharkFunded - Premium Prop Firm",
     description: "Read reviews from thousands of successful traders. See what our community has to say about their SharkFunded experience with fast payouts and excellent support.",
     alternates: {
-        canonical: "https://sharkfunded.com/reviews",
+        canonical: "https://www.sharkfunded.com/reviews",
     },
     openGraph: {
         title: "Trader Reviews | SharkFunded",
         description: "Read reviews from thousands of successful traders. See what our community has to say about their SharkFunded experience.",
-        url: "https://sharkfunded.com/reviews",
+        url: "https://www.sharkfunded.com/reviews",
         siteName: "SharkFunded",
         type: "website",
     },

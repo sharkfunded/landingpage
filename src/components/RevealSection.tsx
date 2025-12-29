@@ -17,8 +17,8 @@ export default function RevealSection({ children, width = "100%", className = ""
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 75 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 75 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: "easeOut", delay }}
             style={{ position: "relative", width, zIndex: 10 }} // z-bound to keep context
             className={`transform-gpu ${className}`}

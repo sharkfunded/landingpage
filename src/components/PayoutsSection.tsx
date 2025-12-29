@@ -3,62 +3,59 @@
 import { useEffect, useState } from "react";
 import StaggerContainer, { StaggerItem } from "./animations/StaggerContainer";
 import AnimatedHeading from "./animations/AnimatedHeading";
+import Link from 'next/link';
 
 // Types for Transaction Data
 interface Transaction {
-    hash: string;
+    txID: string;
     timestamp: number;
-    amount: string;
-    currency: string;
-    status: "Confirmed" | "Pending";
+    amount: number;
+    token: string;
 }
-
-// Mock Data Generator
-const generateMockPayouts = (): Transaction[] => {
-    const payouts: Transaction[] = [];
-    const now = Date.now();
-    for (let i = 0; i < 8; i++) {
-        // Random amount between 1000 and 15000
-        const amount = (Math.random() * 14000 + 1000).toFixed(2);
-        // Random time in last 24 hours
-        const timeOffset = Math.random() * 24 * 60 * 60 * 1000;
-        // Random mock hash
-        const hash = "T" + Array(33).fill(0).map(() => Math.random().toString(36)[2]).join('');
-
-        payouts.push({
-            hash: hash,
-            timestamp: now - timeOffset,
-            amount: amount,
-            currency: "USDT",
-            status: "Confirmed"
-        });
-    }
-    // Sort by most recent
-    return payouts.sort((a, b) => b.timestamp - a.timestamp);
-};
 
 export default function PayoutsSection() {
     const [payouts, setPayouts] = useState<Transaction[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate API fetch delay
-        const timer = setTimeout(() => {
-            setPayouts(generateMockPayouts());
-            setLoading(false);
-        }, 800);
-        return () => clearTimeout(timer);
+        async function fetchPayouts() {
+            try {
+                const res = await fetch('/api/payouts');
+                if (!res.ok) throw new Error('Failed to fetch');
+                const data = await res.json();
+                if (data.payouts) {
+                    setPayouts(data.payouts);
+                }
+            } catch (error) {
+                console.error("Error loading payouts:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchPayouts();
+
+        // Refresh every 60 seconds
+        const interval = setInterval(fetchPayouts, 60000);
+        return () => clearInterval(interval);
     }, []);
 
     // Helper to format date relative or short
     const formatDate = (ts: number) => {
         const date = new Date(ts);
-        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        return date.toLocaleString('en-US', {
+            month: 'numeric',
+            day: 'numeric',
+            year: '2-digit',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
     };
 
     // Helper to truncate hash
     const truncateHash = (hash: string) => {
-        return `${hash.substring(0, 6)}...${hash.substring(hash.length - 6)}`;
+        return `${hash.substring(0, 8)}...`;
     };
 
     return (
@@ -82,18 +79,20 @@ export default function PayoutsSection() {
                         lineHeight: '1.1',
                         color: 'white'
                     }}>
-                        <AnimatedHeading text="Real Payouts" />
+                        <AnimatedHeading text="Real Payouts via Blockchain" />
                     </div>
+                    <p className="text-white/60 max-w-2xl text-center mt-2">
+                        Every profit transaction is recorded on the blockchain, allowing you to track and verify your payouts in real-time through trusted third-party tools like TronScan.
+                    </p>
                 </div>
 
                 {/* Table / List Container */}
                 <StaggerContainer className="w-full max-w-[1000px] backdrop-blur-xl bg-[#0A0B1E]/80 border border-white/5 rounded-3xl overflow-hidden shadow-2xl relative">
                     {/* Header Row */}
-                    <div className="grid grid-cols-3 md:grid-cols-4 px-6 py-5 bg-white/5 border-b border-white/5 text-white/50 text-xs font-bold uppercase tracking-wider font-[family-name:var(--font-sora)]">
+                    <div className="grid grid-cols-3 px-6 py-5 bg-white/5 border-b border-white/5 text-white/50 text-xs font-bold uppercase tracking-wider font-[family-name:var(--font-sora)]">
                         <div className="col-span-1">Date</div>
-                        <div className="col-span-1 hidden md:block">Transaction ID</div>
-                        <div className="col-span-1 md:text-left">Status</div>
-                        <div className="col-span-1 text-right">Amount</div>
+                        <div className="col-span-1">Transaction Hash</div>
+                        <div className="col-span-1 text-right">Payout</div>
                     </div>
 
                     {/* Loading State */}
@@ -103,32 +102,35 @@ export default function PayoutsSection() {
                         </div>
                     )}
 
+                    {/* Empty State */}
+                    {!loading && payouts.length === 0 && (
+                        <div className="p-12 flex justify-center text-white/40 text-sm">
+                            Waiting for live transactions... (Check .env configuration)
+                        </div>
+                    )}
+
                     {/* Data Rows */}
                     {!loading && payouts.map((tx, index) => (
-                        <StaggerItem key={tx.hash} className="group border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
-                            <div className="grid grid-cols-3 md:grid-cols-4 px-6 py-5 items-center">
+                        <StaggerItem key={tx.txID} className="group border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
+                            <div className="grid grid-cols-3 px-6 py-5 items-center">
                                 {/* Date */}
                                 <div className="text-white/80 text-sm font-[family-name:var(--font-sora)]">
                                     {formatDate(tx.timestamp)}
                                 </div>
 
                                 {/* Hash */}
-                                <div className="hidden md:flex items-center gap-2 text-blue-400 text-sm font-mono cursor-pointer hover:text-blue-300 transition-colors">
-                                    <span>{truncateHash(tx.hash)}</span>
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link opacity-0 group-hover:opacity-100 transition-opacity"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                                <div className="flex items-center gap-2 text-blue-400 text-sm font-mono cursor-pointer hover:text-blue-300 transition-colors">
+                                    <Link href={`https://tronscan.org/#/transaction/${tx.txID}`} target="_blank" className="flex items-center gap-2">
+                                        <span>{truncateHash(tx.txID)}</span>
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link opacity-0 group-hover:opacity-100 transition-opacity"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                                    </Link>
                                 </div>
 
-                                {/* Status */}
-                                <div className="flex items-center gap-2">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
-                                    <span className="text-white/90 text-sm font-medium">{tx.status}</span>
-                                </div>
-
-                                {/* Amount */}
+                                {/* Payout (Amount) */}
                                 <div className="text-right font-[family-name:var(--font-sora)] font-bold text-white text-lg">
                                     <span className="text-white/40 text-sm font-normal mr-1">$</span>
-                                    {tx.amount}
-                                    <span className="text-white/40 text-xs font-normal ml-1">{tx.currency}</span>
+                                    {tx.amount.toLocaleString()}
+                                    <span className="text-white/40 text-xs font-normal ml-1">{tx.token}</span>
                                 </div>
                             </div>
                         </StaggerItem>
@@ -140,8 +142,9 @@ export default function PayoutsSection() {
                             <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
                             Updating live from Blockchain
                         </div>
-                        <div>
-                            Powered by Tron
+                        <div className="font-mono text-white/40">
+                            {/* Only show count if we actually have payouts */}
+                            {payouts.length > 0 ? `Items Found: ${payouts.length}` : 'Searching blockchain...'}
                         </div>
                     </div>
                 </StaggerContainer>

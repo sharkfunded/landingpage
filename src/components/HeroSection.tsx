@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useEffect, useRef } from "react";
 import { useLayeredLoading } from "@/hooks/useLayeredLoading";
 import { motion } from "framer-motion";
@@ -33,17 +35,19 @@ export default function HeroSection() {
 
                     {/* Layer 3: Video Background (Deferred) */}
                     <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center">
-                        <video
-                            ref={videoRef}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-cover object-top opacity-100"
-                            style={{ pointerEvents: "none" }}
-                        >
-                            <source src="/videos/light-beam-logo.webm" type="video/webm" />
-                        </video>
+                        {layer3 && (
+                            <video
+                                ref={videoRef}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-cover object-top opacity-100"
+                                style={{ pointerEvents: "none" }}
+                            >
+                                <source src="/videos/light-beam-logo.webm" type="video/webm" />
+                            </video>
+                        )}
                     </div>
 
                     {/* Dark overlay */}
@@ -53,7 +57,6 @@ export default function HeroSection() {
                     <div
                         className={`absolute inset-0 w-full h-full pointer-events-none z-10 mix-blend-screen overflow-hidden transition-opacity duration-700 ease-out transform-gpu ${layer2 ? "opacity-100" : "opacity-0"
                             }`}
-                        style={{ willChange: "transform, opacity" }}
                     >
                         {/* Primary intensified glow - STRICTLY LEFT */}
                         <div className="absolute top-[-20%] left-[-30%] w-[70%] h-[120%] bg-[radial-gradient(circle_closest-side,rgba(0,85,255,0.4)_0%,rgba(0,31,99,0.2)_60%,transparent_100%)] blur-[60px] transform-gpu" />
@@ -81,8 +84,14 @@ export default function HeroSection() {
                         <StaggerItem>
                             <div className="w-fit mb-2 origin-left flex flex-col gap-4">
                                 <div className="flex items-center gap-2 bg-[#151932] border border-white/10 rounded-full pl-1.5 pr-4 py-1.5 w-fit backdrop-blur-md">
-                                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#00C2FF] to-[#0047FF] flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
-                                        <img src="/assets/selected-figma-logo.png" alt="Icon" className="w-full h-full object-cover" />
+                                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#00C2FF] to-[#0047FF] flex items-center justify-center shadow-lg shrink-0 overflow-hidden relative">
+                                        <Image
+                                            src="/assets/selected-figma-logo.png"
+                                            alt="Icon"
+                                            fill
+                                            className="object-cover"
+                                            sizes="24px"
+                                        />
                                     </div>
                                     <span className="text-white text-xs md:text-sm font-medium whitespace-nowrap">MetaTrader 5 Available</span>
                                 </div>
@@ -97,13 +106,19 @@ export default function HeroSection() {
                                 </h1>
                                 <div className="flex flex-wrap items-center gap-0.7 justify-start text-[clamp(28px,3.4vw,58px)] font-semibold font-[family-name:var(--font-sora)]">
                                     <span>With Up to </span>
-                                    <motion.img
+                                    <motion.div
                                         animate={{ y: [0, -5, 0] }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                        src="/assets/trending-shark-icon.png"
-                                        alt=""
-                                        className="w-[1.45em] h-[1.5em] object-contain mb-1.3"
-                                    />
+                                        className="relative w-[1.45em] h-[1.5em] mb-1.3"
+                                    >
+                                        <Image
+                                            src="/assets/trending-shark-icon.png"
+                                            alt=""
+                                            fill
+                                            className="object-contain"
+                                            sizes="60px"
+                                        />
+                                    </motion.div>
                                     <span>$200k</span>
                                 </div>
                             </div>
@@ -144,7 +159,6 @@ export default function HeroSection() {
             <div
                 className={`relative w-full max-w-[95%] md:max-w-[85%] lg:max-w-[1400px] z-30 transition-all duration-1000 ease-out px-4 mx-auto -mt-[140px] md:-mt-[6%] lg:-mt-[3%] mb-[3%] transform-gpu ${layer2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
-                style={{ willChange: "transform, opacity" }}
             >
                 <PayoutsTicker />
             </div>

@@ -19,28 +19,28 @@ export default function TestimonialsSection() {
 
     const reviews = [
         {
-            name: "Robert W",
-            country: "🇬🇧",
-            title: "For start they don't have...",
-            text: "What can I say other than that this prop firm blows the rest out of the park. With extensive experience of prop firms over the last few years, I've not found one that even comes close to this one and it goes to show just how disreputable a lot of the others are when Brightfunded does what they do. Phase 2 credentials immediately upon passing phase 1, funded account credentials the next day and most importantly...",
+            name: "Madhav Bangad",
+            country: "🇮🇳",
+            title: "The Best Prop firm",
+            text: "Shark Funded is one of the most transparent and trader-friendly prop firms i have worked with. Their evaluation rules are fair, payouts are smooth, and the support team responds quickly when needed. The environment feels professional and genuinely focused on helping traders grow. A great choice for anyone serious about improving their trading journey.",
         },
         {
-            name: "Robert W",
-            country: "🇬🇧",
-            title: "For start they don't have...",
-            text: "What can I say other than that this prop firm blows the rest out of the park. With extensive experience of prop firms over the last few years, I've not found one that even comes close to this one and it goes to show just how disreputable a lot of the others are when Brightfunded does what they do. Phase 2 credentials immediately upon passing phase 1, funded account credentials the next day and most importantly...",
+            name: "Kunal B R",
+            country: "🇮🇳",
+            title: "A true game changer in the prop firm….",
+            text: "A true game changer in the prop firm industry. The only firm to launch daily payouts and a per trade consistency score. Cost of challenges are also fairly kept and always have some discounts running. No hidden rules nothing, plain simplified rules. Must try to all the new traders reading my review.",
         },
         {
-            name: "Robert W",
-            country: "🇬🇧",
-            title: "For start they don't have...",
-            text: "What can I say other than that this prop firm blows the rest out of the park. With extensive experience of prop firms over the last few years, I've not found one that even comes close to this one and it goes to show just how disreputable a lot of the others are when Brightfunded does what they do. Phase 2 credentials immediately upon passing phase 1, funded account credentials the next day and most importantly...",
+            name: "Ojas Waragade",
+            country: "🇮🇳",
+            title: "One of the best prop firm.",
+            text: "One of the best prop firm. Trading conditions solid . Spread very raw , execution fast. Shark funded is one of the few prop firm that actually respects real traders. And best support team...",
         },
         {
-            name: "Robert W",
-            country: "🇬🇧",
-            title: "For start they don't have...",
-            text: "What can I say other than that this prop firm blows the rest out of the park. With extensive experience of prop firms over the last few years, I've not found one that even comes close to this one and it goes to show just how disreputable a lot of the others are when Brightfunded does what they do. Phase 2 credentials immediately upon passing phase 1, funded account credentials the next day and most importantly...",
+            name: "ksha",
+            country: "🇮🇳",
+            title: "Good firm...",
+            text: "NGL, Shark Funded is one of the good firms I have traded with, I can say it’s in the top 5. Their rules are a little hard, but as an A book prop firm, I understand this and why the rules are like that. I have taken 2 payouts with them and they were smooth. Overall, a decent firm....",
         },
     ];
 

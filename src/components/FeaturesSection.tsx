@@ -48,7 +48,7 @@ export default function FeaturesSection() {
                                     <p className="text-xs text-[#595959] font-[family-name:var(--font-sora)]">Dedicated<br />Professionals</p>
                                 </StaggerItem>
                                 <StaggerItem>
-                                    <h3 className="text-2xl font-bold text-black mb-1 font-[family-name:var(--font-sora)]">3</h3>
+                                    <h3 className="text-2xl font-bold text-black mb-1 font-[family-name:var(--font-sora)]">2</h3>
                                     <p className="text-xs text-[#595959] font-[family-name:var(--font-sora)]">Global<br />Offices</p>
                                 </StaggerItem>
                                 <StaggerItem>
@@ -77,13 +77,13 @@ export default function FeaturesSection() {
                                     from 0.0 pips.
                                 </h2>
                                 <p className="text-[#595959] text-base md:text-lg leading-relaxed font-[family-name:var(--font-sora)]">
-                                    Get in the trade at the price level you set with our platform. Our diverse liquidity mix keeps spreads tight 24/5.
+                                    Get in the trade at the price level you set with our platform. Our diverse liquidity mix keeps spreads tight 24/7.
                                 </p>
                             </div>
 
                             {/* List Items */}
                             <StaggerContainer className="space-y-4">
-                                {["Experience raw spreads from 0.0 Pips", "Commission Free Account", "Low latency Trade Executions", "Global Data Centers"].map((item, i) => (
+                                {["Experience raw spreads from 0.0 Pips", "Commission from 2.5$ per lot", "Low latency Trade Executions", "Global Data Centers"].map((item, i) => (
                                     <StaggerItem key={i}>
                                         <div className="px-6 py-4 rounded-xl bg-gradient-to-r from-[#CBE0F0] to-[#CBE0F000] border border-[#E9F0FF] text-black font-semibold text-sm font-[family-name:var(--font-sora)] flex items-center transition-all hover:pl-10 hover:bg-white/50">
                                             {item}

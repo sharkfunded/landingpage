@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function AffiliateContent() {
@@ -25,9 +26,9 @@ export default function AffiliateContent() {
                                 Lifetime commissions, luxury milestone rewards,
                                 and on-demand payouts.
                             </p>
-                            <button className="px-8 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-full font-medium transition-colors shadow-lg shadow-blue-500/30">
-                                Join the Protocol
-                            </button>
+                            <Link href="https://dashboard.sharkfunded.com/register" className="px-8 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-full font-medium transition-colors shadow-lg shadow-blue-500/30 inline-block">
+                                Join the Affiliate
+                            </Link>
                         </motion.div>
                     </div>
                     {/* Placeholder for potential image or empty space if design suggests text-heavy left side */}

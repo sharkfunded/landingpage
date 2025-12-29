@@ -1,8 +1,10 @@
+
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import ApplicationFormModal from "./ApplicationFormModal";
 
 interface Job {
@@ -11,41 +13,59 @@ interface Job {
     department: string;
     location: string;
     type: string;
+    slug: string;
 }
 
 const jobs: Job[] = [
+
     {
         id: "1",
-        title: "Senior Frontend Engineer",
-        department: "Engineering",
-        location: "Remote",
+        title: "Risk Manager",
+        department: "Risk",
+        location: "Dubai",
         type: "Full-time",
+        slug: "risk-manager"
     },
     {
-        id: "2",
-        title: "Product Designer",
-        department: "Design",
-        location: "London, UK",
-        type: "Full-time",
-    },
-    {
-        id: "3",
-        title: "Growth Marketing Manager",
+        id: "1",
+        title: "Affiliate Manager",
         department: "Marketing",
-        location: "Remote",
+        location: "Dubai",
         type: "Full-time",
-    },
-    {
-        id: "4",
-        title: "Customer Success Specialist",
-        department: "Support",
-        location: "New York, USA",
-        type: "Full-time",
+        slug: "affiliate-manager"
     },
 ];
 
-export default function JobOpenings() {
+function JobOpeningsContent() {
     const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const pathname = usePathname();
+
+    // Sync state with URL
+    useEffect(() => {
+        const jobSlug = searchParams.get("job");
+        if (jobSlug) {
+            const job = jobs.find((j) => j.slug === jobSlug);
+            if (job) {
+                setSelectedJob(job);
+            }
+        } else {
+            setSelectedJob(null);
+        }
+    }, [searchParams]);
+
+    const handleJobClick = (job: Job) => {
+        const params = new URLSearchParams(searchParams);
+        params.set("job", job.slug);
+        router.push(`${pathname}?${params.toString()} `, { scroll: false });
+    };
+
+    const handleClose = () => {
+        const params = new URLSearchParams(searchParams);
+        params.delete("job");
+        router.push(`${pathname}?${params.toString()} `, { scroll: false });
+    };
 
     return (
         <section className="w-full py-24 bg-white text-black relative z-20">
@@ -68,7 +88,7 @@ export default function JobOpenings() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                             className="group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:border-[#00C2FF]/30 hover:shadow-lg transition-all duration-300 cursor-pointer"
-                            onClick={() => setSelectedJob(job)}
+                            onClick={() => handleJobClick(job)}
                         >
                             <div className="flex flex-col gap-1">
                                 <h3 className="text-xl font-bold font-[family-name:var(--font-sora)] group-hover:text-[#0047FF] transition-colors">
@@ -86,7 +106,7 @@ export default function JobOpenings() {
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    setSelectedJob(job);
+                                    handleJobClick(job);
                                 }}
                                 className="mt-4 md:mt-0 flex items-center gap-2 text-sm font-medium text-[#0047FF] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
                             >
@@ -99,9 +119,18 @@ export default function JobOpenings() {
 
             <ApplicationFormModal
                 isOpen={!!selectedJob}
-                onClose={() => setSelectedJob(null)}
+                onClose={handleClose}
                 jobTitle={selectedJob?.title || ""}
             />
         </section>
     );
 }
+
+export default function JobOpenings() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <JobOpeningsContent />
+        </Suspense>
+    );
+}
+

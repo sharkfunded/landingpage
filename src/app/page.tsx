@@ -1,16 +1,28 @@
+import dynamic from "next/dynamic";
+import { Metadata } from "next";
 import TopBar from "@/components/TopBar";
 import StickyHeader from "@/components/StickyHeader";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import PricingSection from "@/components/PricingSection";
-import RewardsSection from "@/components/RewardsSection";
-import HeroSectionTwo from "@/components/HeroSectionTwo";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import RewardsSectionTwo from "@/components/RewardsSectionTwo";
-import FAQSection from "@/components/FAQSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.sharkfunded.com',
+  },
+};
+
+
+// Dynamically import heavy below-the-fold components to reduce initial bundle size
+const PricingSection = dynamic(() => import("@/components/PricingSection"));
+const RewardsSection = dynamic(() => import("@/components/RewardsSection"));
+const HeroSectionTwo = dynamic(() => import("@/components/HeroSectionTwo"));
+const HowItWorksSection = dynamic(() => import("@/components/HowItWorksSection"));
+const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"));
+const RewardsSectionTwo = dynamic(() => import("@/components/RewardsSectionTwo"));
+const FAQSection = dynamic(() => import("@/components/FAQSection"));
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const PromotionalPopup = dynamic(() => import("@/components/PromotionalPopup"));
 import RevealSection from "@/components/RevealSection";
 
 export default function Home() {
@@ -96,6 +108,7 @@ export default function Home() {
         <Footer />
       </div>
 
+      <PromotionalPopup />
     </main>
   );
 }

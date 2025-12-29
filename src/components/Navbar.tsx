@@ -45,16 +45,6 @@ export default function Navbar() {
                         Challenges
                     </Link>
                     <Link
-                        href="#"
-                        className="hover:text-blue-400 transition-colors"
-                        style={{
-                            fontSize: '14px',
-                            letterSpacing: 'clamp(-0.2px, -0.04vw, -0.85px)'
-                        }}
-                    >
-                        Rewards
-                    </Link>
-                    <Link
                         href="/affiliate"
                         className="hover:text-blue-400 transition-colors"
                         style={{
@@ -125,7 +115,7 @@ export default function Navbar() {
                     </div>
 
                     <Link
-                        href="#"
+                        href="https://intercom.help/sharkfunded/en"
                         className="hover:text-blue-400 transition-colors"
                         style={{
                             fontSize: '14px',
@@ -206,7 +196,6 @@ export default function Navbar() {
                         >
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white/90 hover:text-white text-lg font-medium transition-colors">Home</Link>
                             <Link href="/#pricing" onClick={() => setIsMobileMenuOpen(false)} className="text-white/90 hover:text-white text-lg font-medium transition-colors">Challenges</Link>
-                            <Link href="#" className="text-white/90 hover:text-white text-lg font-medium transition-colors">Rewards</Link>
                             <Link href="/affiliate" className="text-white/90 hover:text-white text-lg font-medium transition-colors">Partner Up</Link>
 
                             {/* Mobile About Us Accordion */}

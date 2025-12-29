@@ -8,7 +8,7 @@ import RevealSection from './RevealSection';
 import StaggerContainer, { StaggerItem } from './animations/StaggerContainer';
 import ParallaxBlock from './animations/ParallaxBlock';
 
-const faqs = [
+const generalFaqs = [
     {
         question: "What is SharkFunded?",
         answer: "SharkFunded is a proprietary trading firm that provides capital to profitable traders. We offer a simulated trading environment where you can prove your skills and earn real rewards based on your performance."
@@ -31,18 +31,104 @@ const faqs = [
     }
 ];
 
+const challengesFaqs = [
+    {
+        question: "What are the different challenge options?",
+        answer: `At SharkFunded, we offer two types of evaluation challenges:
+
+Instant Funding
+- Payout Frequency: Weekly
+- Daily Drawdown: 4%
+- Overall Drawdown: 7%
+
+1-Step Challenge
+- Profit Target: 8%
+- Payout Frequency: Daily
+- Daily Drawdown: 4%
+- Overall Drawdown: 7%
+
+2-Step Challenge
+- Phase 1 Profit Target: 7%
+- Phase 2 Profit Target: 5%
+- Payout Frequency: Daily
+- Daily Drawdown: 4%
+- Overall Drawdown: 11%`
+    },
+    {
+        question: "How long do I have to complete the challenge?",
+        answer: "At SharkFunded, we offer unlimited time to complete the evaluation. You can take as long as needed, provided you follow the risk parameters."
+    },
+    {
+        question: "Do I get a refund if I pass the challenge?",
+        answer: "Refunds are only available during certain promotions. If a promotion includes a refund incentive, it will be clearly stated at the time of purchase."
+    },
+    {
+        question: "Can I reset my challenge if I fail?",
+        answer: "Resets are only available during certain promotions. At SharkFunded, we do not offer resets as a standard feature, but promotions may include this feature."
+    },
+    {
+        question: "What happens after I pass the challenge?",
+        answer: "Once you pass, you will be issued a funded account where you can trade and withdraw profits. At SharkFunded, you receive profit splits of up to 100% with no consultancy rules or restrictions on trading styles."
+    }
+];
+
+const rulesFaqs = [
+    {
+        question: "What are the daily and overall drawdown limits?",
+        answer: `At SharkFunded, our challenges have specific risk parameters:
+
+Instant Funded Account:
+- Daily Drawdown: 4%
+- Maximum Overall Drawdown: 7%
+
+1-Step Account:
+- Daily Drawdown: 4%
+- Maximum Overall Drawdown: 7%
+
+2-Step Account:
+- Daily Drawdown: 4%
+- Maximum Overall Drawdown: 11%
+
+If you exceed these limits, your account will be breached, and you will need to restart the challenge.`
+    },
+    {
+        question: "Can I trade during news events?",
+        answer: `Yes! You can trade prior to, after news in both the evaluation and funded stages but you cannot hold through it unless the trade is taken 5 minutes prior.
+
+Why is this beneficial?
+Many firms restrict news trading because of market volatility. However, at SharkFunded, we allow you to take advantage of high-impact news events, providing more opportunities to grow your profits.`
+    },
+    {
+        question: "Can I hold trades over the weekend?",
+        answer: `Yes!
+Evaluation Phase: You can hold trades over the weekend.
+Funded Phase: You cannot hold trades over the weekend.`
+    },
+    {
+        question: "Am I allowed to use Expert Advisors (EAs) or copy trading?",
+        answer: "Yes, EAs and copy trading are allowed as long as they do not violate any risk parameters. Strategies such as latency arbitrage, tick scalping, or exploiting platform vulnerabilities are strictly prohibited."
+    },
+    {
+        question: "What happens if I violate a rule?",
+        answer: "If you breach a rule (exceeding drawdowns, using prohibited strategies, etc.), your account will be invalidated, and you will need to restart the challenge. No refunds are provided for rule violations."
+    }
+];
+
 interface FAQSectionProps {
     theme?: 'light' | 'dark';
 }
 
 export default function FAQSection({ theme = 'light' }: FAQSectionProps) {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
     const [activeTab, setActiveTab] = useState('General');
 
     const isDark = theme === 'dark';
     const bgColor = isDark ? 'bg-[#050B25]' : 'bg-white';
     const textColor = isDark ? 'text-white' : 'text-black';
     const subTextColor = isDark ? 'text-gray-400' : 'text-gray-500';
+
+    // Select FAQ array based on active tab
+    const currentFaqs = activeTab === 'Challenges' ? challengesFaqs : activeTab === 'Rules' ? rulesFaqs : generalFaqs;
 
     return (
         <section className={`w-full py-12 px-4 flex flex-col items-center ${bgColor}`}>
@@ -64,7 +150,10 @@ export default function FAQSection({ theme = 'light' }: FAQSectionProps) {
                 {['General', 'Rules', 'Challenges'].map((tab) => (
                     <button
                         key={tab}
-                        onClick={() => setActiveTab(tab)}
+                        onClick={() => {
+                            setActiveTab(tab);
+                            setOpenIndex(null);
+                        }}
                         className={`px-8 py-2 rounded-full font-bold border transition-all font-[family-name:var(--font-sora)]
               ${activeTab === tab
                                 ? 'bg-[#1E233B] text-white border-[#1E233B]'
@@ -80,8 +169,8 @@ export default function FAQSection({ theme = 'light' }: FAQSectionProps) {
             </div>
 
             {/* FAQ Accordion */}
-            <StaggerContainer className="w-full max-w-[900px] flex flex-col gap-4 mb-24">
-                {faqs.map((faq, index) => (
+            <StaggerContainer className="w-full max-w-[900px] flex flex-col gap-4 mb-24" key={activeTab}>
+                {currentFaqs.map((faq, index) => (
                     <StaggerItem key={index}>
                         <div
                             className="rounded-2xl overflow-hidden bg-[#050B25] text-white border border-white/5 transition-all"
@@ -105,7 +194,7 @@ export default function FAQSection({ theme = 'light' }: FAQSectionProps) {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
-                                        <div className="p-6 pt-0 text-gray-400 font-light leading-relaxed font-[family-name:var(--font-sora)]">
+                                        <div className="p-6 pt-0 text-gray-400 font-light leading-relaxed font-[family-name:var(--font-sora)] whitespace-pre-line">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

@@ -55,7 +55,7 @@ export default function RewardsSectionTwo() {
                         {/* Right Stats */}
                         <StaggerContainer className="flex items-center gap-8 md:gap-16 relative z-10 text-center md:text-left">
                             <StaggerItem>
-                                <div className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-sora)]">3H</div>
+                                <div className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-sora)]">6H</div>
                                 <div className="text-gray-400 text-xs md:text-sm">Avg. Payout Time</div>
                             </StaggerItem>
                             <div className="w-[1px] h-10 bg-white/10 hidden md:block"></div>
@@ -65,7 +65,7 @@ export default function RewardsSectionTwo() {
                             </StaggerItem>
                             <div className="w-[1px] h-10 bg-white/10 hidden md:block"></div>
                             <StaggerItem>
-                                <div className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-sora)]">$120K+</div>
+                                <div className="text-2xl md:text-3xl font-bold text-white font-[family-name:var(--font-sora)]">$100K+</div>
                                 <div className="text-gray-400 text-xs md:text-sm">Overall Payouts</div>
                             </StaggerItem>
                         </StaggerContainer>
@@ -78,69 +78,72 @@ export default function RewardsSectionTwo() {
 
                     {/* Strip 1: Scroll Left */}
                     <StaggerItem className="w-full relative group">
-                        <div className="flex gap-6 animate-scroll-fast w-max will-change-transform">
-                            {/* Cycle through certs 1-5 */}
+                        <div className="flex gap-6 animate-scroll-fast w-max will-change-[transform] transform-gpu">
+                            {/* Cycle through certs 1-6 */}
                             {[...Array(4)].map((_, rep) => (
                                 <React.Fragment key={rep}>
-                                    {[1, 2, 3, 4, 5].map((num) => (
+                                    {[1, 2, 3, 4, 5, 6].map((num) => (
                                         <div key={`s1-${rep}-${num}`} className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center h-[160px] w-auto">
                                             <img
-                                                src={`/assets/new_certs/cert-${num}.png`}
+                                                src={`/assets/payout_${num}.png?v=whatsapp`}
                                                 alt={`Certificate ${num}`}
-                                                className="h-full w-auto object-contain opacity-90 transition-all group-hover:opacity-100 group-hover:scale-[1.02]"
+                                                className="h-full w-auto object-contain opacity-50 transition-all group-hover:opacity-100 group-hover:scale-[1.02] backface-hidden"
+                                                loading="lazy"
                                             />
                                         </div>
                                     ))}
                                 </React.Fragment>
                             ))}
                         </div>
-                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
                     </StaggerItem>
 
                     {/* Strip 2: Scroll Right */}
                     <StaggerItem className="w-full relative group">
-                        <div className="flex gap-6 animate-scroll-fast-reverse w-max will-change-transform">
-                            {/* Cycle through certs 6-10 */}
+                        <div className="flex gap-6 animate-scroll-fast-reverse w-max will-change-[transform] transform-gpu">
+                            {/* Cycle through certs 7-12 */}
                             {[...Array(4)].map((_, rep) => (
                                 <React.Fragment key={rep}>
-                                    {[6, 7, 8, 9, 10].map((num) => (
+                                    {[7, 8, 9, 10, 11, 12].map((num) => (
                                         <div key={`s2-${rep}-${num}`} className="bg-white p-2 rounded-xl shadow-md border border-gray-100 flex items-center justify-center h-[160px] w-auto">
                                             <img
-                                                src={`/assets/new_certs/cert-${num}.png`}
+                                                src={`/assets/payout_${num}.png?v=whatsapp`}
                                                 alt={`Certificate ${num}`}
-                                                className="h-full w-auto object-contain z-10 opacity-90 transition-all group-hover:opacity-100 group-hover:scale-[1.02]"
+                                                className="h-full w-auto object-contain opacity-90 transition-all group-hover:opacity-100 group-hover:scale-[1.02] backface-hidden"
+                                                loading="lazy"
                                             />
                                         </div>
                                     ))}
                                 </React.Fragment>
                             ))}
                         </div>
-                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
                     </StaggerItem>
 
                     {/* Strip 3: Scroll Left */}
                     <StaggerItem className="w-full relative group">
-                        <div className="flex gap-6 animate-scroll-fast w-max will-change-transform">
-                            {/* Cycle through certs 1-5 again or mix */}
+                        <div className="flex gap-6 animate-scroll-fast w-max will-change-[transform] transform-gpu">
+                            {/* Cycle through certs 1-12 mix */}
                             {[...Array(4)].map((_, rep) => (
                                 <React.Fragment key={rep}>
-                                    {[1, 3, 5, 7, 9].map((num) => (
+                                    {[1, 3, 5, 7, 9, 11].map((num) => (
                                         <div key={`s3-${rep}-${num}`} className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center h-[160px] w-auto">
                                             <img
-                                                src={`/assets/new_certs/cert-${num}.png`}
+                                                src={`/assets/payout_${num}.png?v=whatsapp`}
                                                 alt={`Certificate ${num}`}
-                                                className="h-full w-auto object-contain opacity-50 transition-all group-hover:opacity-100 group-hover:scale-[1.02]"
+                                                className="h-full w-auto object-contain opacity-50 transition-all group-hover:opacity-100 group-hover:scale-[1.02] backface-hidden"
+                                                loading="lazy"
                                             />
                                         </div>
                                     ))}
                                 </React.Fragment>
                             ))}
                         </div>
-                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
-                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent z-20" />
+                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none" />
                     </StaggerItem>
 
                     <button className="px-8 py-3 bg-[#020513] text-white font-bold rounded-full relative z-30 -mt-20 hover:scale-110 active:scale-95 transition-all shadow-xl font-[family-name:var(--font-sora)] border border-white/10 hover:shadow-blue-500/20">

@@ -1,7 +1,8 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
+import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 import FAQSection from "@/components/FAQSection";
@@ -9,6 +10,7 @@ import FAQSection from "@/components/FAQSection";
 export default function ReviewsPage() {
     const textScrollRef = useRef<HTMLDivElement>(null);
     const videoScrollRef = useRef<HTMLDivElement>(null);
+    const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
     const scrollLeft = (ref: React.RefObject<HTMLDivElement | null>) => {
         if (ref.current) {
@@ -24,64 +26,40 @@ export default function ReviewsPage() {
 
     const reviews = [
         {
-            name: "Robert W",
-            country: "🇬🇧",
-            title: "For start they don't have...",
-            text: "What can I say other than that this prop firm blows the rest out of the park. With extensive experience of prop firms over the last few years, I've not found one that even comes close to this one and it goes to show just how disreputable a lot of the others are when Brightfunded does what they do. Phase 2 credentials immediately upon passing phase 1, funded account credentials the next day and most importantly...",
+            name: "Madhav Bangad",
+            country: "🇮🇳",
+            title: "The Best Prop firm",
+            text: "Shark Funded is one of the most transparent and trader-friendly prop firms i have worked with. Their evaluation rules are fair, payouts are smooth, and the support team responds quickly when needed. The environment feels professional and genuinely focused on helping traders grow. A great choice for anyone serious about improving their trading journey.",
         },
         {
-            name: "Michael T",
-            country: "🇺🇸",
-            title: "Best prop firm experience ever",
-            text: "I've tried multiple prop firms and SharkFunded stands head and shoulders above the rest. The platform is incredibly reliable, payouts are fast, and the support team is always available. The challenge rules are fair and achievable. Highly recommend to anyone serious about prop trading.",
+            name: "Kunal B R",
+            country: "🇮🇳",
+            title: "A true game changer in the prop firm….",
+            text: "A true game changer in the prop firm industry. The only firm to launch daily payouts and a per trade consistency score. Cost of challenges are also fairly kept and always have some discounts running. No hidden rules nothing, plain simplified rules. Must try to all the new traders reading my review.",
         },
         {
-            name: "Ahmed K",
-            country: "🇦🇪",
-            title: "Professional and transparent",
-            text: "The transparency at SharkFunded is unmatched. Every rule is clearly stated, no hidden clauses. I passed my challenge in 3 weeks and received my funded account credentials within 24 hours. The profit split is excellent and payouts have always been on time.",
+            name: "Ojas Waragade",
+            country: "🇮🇳",
+            title: "One of the best prop firm.",
+            text: "One of the best prop firm. Trading conditions solid . Spread very raw , execution fast. Shark funded is one of the few prop firm that actually respects real traders. And best support team...",
         },
         {
-            name: "Sophie L",
-            country: "🇫🇷",
-            title: "Finally a trustworthy firm",
-            text: "After being burned by other prop firms, I was skeptical. But SharkFunded proved me wrong. Their support is responsive, the platform is stable, and they actually pay out. I've received 3 payouts already and each was processed within 2 business days.",
-        },
-        {
-            name: "David Chen",
-            country: "🇸🇬",
-            title: "Excellent trading conditions",
-            text: "The spreads are tight, execution is fast, and there's no dealing desk interference. I can trade my strategy without worrying about slippage or requotes. The scaling plan is generous and I've already upgraded twice.",
-        },
-        {
-            name: "Carlos M",
-            country: "🇪🇸",
-            title: "Game changer for my career",
-            text: "SharkFunded has completely transformed my trading career. With access to proper capital, I can finally trade without the stress of risking my own money. The community is supportive and the educational resources are top-notch.",
-        },
-        {
-            name: "Emma R",
-            country: "🇦🇺",
-            title: "Smooth experience throughout",
-            text: "From sign-up to my first payout, everything was smooth. The dashboard is intuitive, account metrics are clear, and I always know where I stand. Customer support resolved my questions within hours. 5 stars!",
-        },
-        {
-            name: "Takeshi Y",
-            country: "🇯🇵",
-            title: "Worth every penny",
-            text: "The challenge fee pays for itself quickly when you get funded. I passed phase 1 in two weeks, phase 2 in another week, and I've already made back my initial investment multiple times over. This is the real deal.",
+            name: "ksha",
+            country: "🇮🇳",
+            title: "Good firm...",
+            text: "NGL, Shark Funded is one of the good firms I have traded with, I can say it’s in the top 5. Their rules are a little hard, but as an A book prop firm, I understand this and why the rules are like that. I have taken 2 payouts with them and they were smooth. Overall, a decent firm....",
         },
     ];
 
     const videoTestimonials = [
-        { name: "Jordy", country: "🇧🇪", amount: "$24,827.20", image: "/assets/testimonial-1.png" },
-        { name: "Emre", country: "🇹🇷", amount: "$14,319.90", image: "/assets/testimonial-2.png" },
-        { name: "Dave", country: "🇳🇱", amount: "$4,195.37", image: "/assets/testimonial-3.png" },
-        { name: "John", country: "🇺🇸", amount: "$24,827.20", image: "/assets/testimonial-4.png" },
-        { name: "Sarah", country: "🇨🇦", amount: "$18,543.00", image: "/assets/testimonial-5.png" },
-        { name: "Marcus", country: "🇩🇪", amount: "$31,250.00", image: "/assets/testimonial-6.png" },
-        { name: "Lisa", country: "🇸🇪", amount: "$9,875.50", image: "/assets/testimonial-7.png" },
-        { name: "Raj", country: "🇮🇳", amount: "$12,340.00", image: "/assets/testimonial-8.png" },
+        { name: "Jordy", country: "🇧🇪", amount: "$24,827.20", image: "/assets/testimonial-1.png", youtubeId: "tWGu5AdCuaI" },
+        { name: "Emre", country: "🇹🇷", amount: "$14,319.90", image: "/assets/testimonial-2.png", youtubeId: "a1TH5h7wlpw" },
+        { name: "Dave", country: "🇳🇱", amount: "$4,195.37", image: "/assets/testimonial-3.png", youtubeId: "6TJ_Ro_0USg" },
+        { name: "John", country: "🇺🇸", amount: "$24,827.20", image: "/assets/testimonial-4.png", youtubeId: "1_GasVnMlaE" },
+        { name: "Sarah", country: "🇨🇦", amount: "$18,543.00", image: "/assets/testimonial-5.png", youtubeId: "Nmosn8DWyjo" },
+        { name: "Marcus", country: "🇩🇪", amount: "$31,250.00", image: "/assets/testimonial-6.png", youtubeId: "LpCUhaWECWk" },
+        { name: "Lisa", country: "🇸🇪", amount: "$9,875.50", image: "/assets/testimonial-7.png", youtubeId: "tWGu5AdCuaI" },
+        { name: "Raj", country: "🇮🇳", amount: "$12,340.00", image: "/assets/testimonial-8.png", youtubeId: "a1TH5h7wlpw" },
     ];
 
     return (
@@ -89,8 +67,10 @@ export default function ReviewsPage() {
             {/* Dashboard Card Container: Wraps Header */}
             <div className="relative w-[95%] max-w-[1800px] mx-auto mt-4 md:mt-8 bg-[#040822] rounded-[30px] md:rounded-[50px] overflow-hidden shadow-2xl border border-black/5">
                 <div className="relative z-50">
-                    <TopBar />
-                    <Navbar />
+                    <StickyHeader>
+                        <TopBar />
+                        <Navbar />
+                    </StickyHeader>
                 </div>
 
                 {/* Hero Section for Reviews Page */}
@@ -118,7 +98,7 @@ export default function ReviewsPage() {
                         <div className="flex justify-center mb-8">
                             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1a1f3d]/80 border border-white/10 backdrop-blur-sm">
                                 <span className="font-[family-name:var(--font-sora)] text-white/90 text-[14px] md:text-[16px] font-light tracking-wide">
-                                    Real Trustpilot Reviews, Real Credibility
+                                    Real Traders Reviews, Real Credibility
                                 </span>
                             </div>
                         </div>
@@ -216,32 +196,25 @@ export default function ReviewsPage() {
                             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                         >
                             {videoTestimonials.map((video, i) => (
-                                <div key={i} className="min-w-[280px] md:min-w-[320px] aspect-[9/16] relative rounded-[24px] overflow-hidden snap-center group cursor-pointer border border-white/5">
-                                    {/* Fallback Background (Gradient if no image) */}
-                                    <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 group-hover:scale-105 transition-transform duration-500" />
+                                <div
+                                    key={i}
+                                    className="min-w-[280px] md:min-w-[320px] aspect-[9/16] relative rounded-[24px] overflow-hidden snap-center group cursor-pointer border border-white/5"
+                                    onClick={() => setSelectedVideo(video.youtubeId)}
+                                >
+                                    {/* YouTube Thumbnail */}
+                                    <img
+                                        src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+                                        alt="Video testimonial"
+                                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
 
                                     {/* Gradient Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
 
                                     {/* Play Button Overlay */}
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover:opacity-100 transition-opacity">
+                                        <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                                             <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
-                                        </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="absolute bottom-0 left-0 w-full p-6">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <span className="text-white font-[family-name:var(--font-sora)] font-medium text-lg">{video.name}</span>
-                                            <span className="text-xl">{video.country}</span>
-                                        </div>
-                                        <div className="text-white/80 font-[family-name:var(--font-sora)] text-sm">
-                                            {video.amount}
-                                        </div>
-                                        {/* Shark Logo */}
-                                        <div className="absolute bottom-6 right-6 w-8 h-8 opacity-80">
-                                            <img src="/assets/shark-logo.svg" alt="SharkFunded Logo" className="w-full h-full brightness-0 invert" />
                                         </div>
                                     </div>
                                 </div>
@@ -250,6 +223,35 @@ export default function ReviewsPage() {
                     </div>
                 </section>
             </RevealSection>
+
+            {/* YouTube Video Modal */}
+            {selectedVideo && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+                    onClick={() => setSelectedVideo(null)}
+                >
+                    <div
+                        className="relative w-full max-w-4xl aspect-video"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setSelectedVideo(null)}
+                            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+                        >
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <iframe
+                            className="w-full h-full rounded-xl"
+                            src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            )}
 
             {/* World Map Section */}
             <RevealSection>

@@ -10,7 +10,7 @@ export const metadata = {
     title: "Careers | Join Our Team",
     description: "Join the revolution in prop trading. View our open positions and help us build the future.",
     alternates: {
-        canonical: "/careers",
+        canonical: "https://www.sharkfunded.com/careers",
     },
 };
 

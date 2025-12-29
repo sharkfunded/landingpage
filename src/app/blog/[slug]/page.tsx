@@ -3,6 +3,7 @@
 import React from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
+import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 import { useParams } from "next/navigation";
@@ -23,8 +24,10 @@ export default function BlogPostPage() {
             {/* Header & Hero Container */}
             <div className="relative w-[95%] max-w-[1800px] mx-auto mt-4 md:mt-8 bg-[#040822] rounded-[30px] md:rounded-[50px] overflow-hidden shadow-2xl border border-black/5">
                 <div className="relative z-50">
-                    <TopBar />
-                    <Navbar />
+                    <StickyHeader>
+                        <TopBar />
+                        <Navbar />
+                    </StickyHeader>
                 </div>
 
                 {/* Hero Content - Compact for Article */}

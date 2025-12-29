@@ -3,42 +3,26 @@
 import { useState, useEffect } from "react";
 
 export function useLayeredLoading() {
-    const [layer2, setLayer2] = useState(false); // Static visuals (200ms)
-    const [layer3, setLayer3] = useState(false); // Heavy assets (Idle)
-    const [layer4, setLayer4] = useState(false); // Animations (After visuals)
+    const [layer2, setLayer2] = useState(false);
+    const [layer3, setLayer3] = useState(false);
+    const [layer4, setLayer4] = useState(false);
 
     useEffect(() => {
-        // Layer 1 is immediate (default state)
+        // We defer heavy visual effects slightly to allow the main thread
+        // to handle initial React hydration without blocking.
+        // 1. Layer 2 (Glows/Blur): 200ms
+        const t1 = setTimeout(() => setLayer2(true), 200);
 
-        // Layer 2: 200ms delay
-        const timer2 = setTimeout(() => {
-            setLayer2(true);
-        }, 200);
+        // 2. Layer 3 (Video): 400ms - gives time for LCP (text) to paint first if possible
+        const t2 = setTimeout(() => setLayer3(true), 400);
 
-        // Layer 3: Idle callback (or fallback timeout)
-        let idleId: number | undefined;
-        if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-            idleId = (window as any).requestIdleCallback(() => {
-                setLayer3(true);
-            });
-        } else {
-            setTimeout(() => {
-                setLayer3(true);
-            }, 1000);
-        }
-
-        // Layer 4: Start animations after visuals are likely visible
-        // Assuming visuals take ~500ms to fade in after Layer 2 starts (200ms + 500ms = 700ms)
-        const timer4 = setTimeout(() => {
-            setLayer4(true);
-        }, 800);
+        // 3. Layer 4 (Animations): 500ms
+        const t3 = setTimeout(() => setLayer4(true), 500);
 
         return () => {
-            clearTimeout(timer2);
-            clearTimeout(timer4);
-            if (idleId && typeof window !== "undefined" && "cancelIdleCallback" in window) {
-                (window as any).cancelIdleCallback(idleId);
-            }
+            clearTimeout(t1);
+            clearTimeout(t2);
+            clearTimeout(t3);
         };
     }, []);
 

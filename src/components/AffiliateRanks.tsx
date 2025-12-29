@@ -92,9 +92,9 @@ export default function AffiliateRanks() {
                             title="The Apex"
                             requirements={["$500,000 Sales"]}
                             commissions="Upgrades to 20% (Capped)"
-                            unlocks="Brand New Range Rover SV"
-                            imagePlaceholder="Range Rover SV"
-                            imageSrc="/assets/car-rank.png"
+                            unlocks="Ford Mustang"
+                            imagePlaceholder="Ford Mustang"
+                            imageSrc="/assets/car-rank.webp"
                         />
                     </div>
                 </div>
@@ -224,13 +224,13 @@ function RankLevel({
                             </div>
                         ) : level === 4 ? (
                             // Level 4 (Car) - Extra Large Merged/Cropped style
-                            <div className="absolute -bottom-[5%] md:-bottom-[20%] -right-[10%] w-[100%] h-[140%] flex items-end justify-center z-0">
+                            <div className="absolute -bottom-[10%] md:-bottom-[20%] -right-[5%] md:-right-[10%] w-[110%] md:w-[100%] h-[130%] md:h-[140%] flex items-end justify-center z-0">
                                 {/* Blue ambient glow */}
                                 <div className="absolute bottom-[20%] right-[20%] w-[100%] h-[100%] bg-blue-600/20 blur-[100px] rounded-full pointer-events-none" />
                                 <img
                                     src={imageSrc}
                                     alt={title}
-                                    className="w-full h-full object-contain object-bottom scale-[1.8]"
+                                    className="w-full h-full object-contain object-bottom scale-[1.6] md:scale-[2.2]"
                                 />
                             </div>
                         ) : (
