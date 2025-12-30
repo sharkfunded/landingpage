@@ -96,10 +96,10 @@ export default function PromotionalPopup() {
                                             <Gift className="w-10 h-10" />
                                         </div>
                                         <h3 className="text-2xl font-bold font-[family-name:var(--font-sora)] text-white mb-2">
-                                            You're In!
+                                            You're Entered!
                                         </h3>
                                         <p className="text-gray-400">
-                                            Good luck! Check your inbox for confirmation and your 50% discount code.
+                                            Good luck! Check your inbox for confirmation.
                                         </p>
                                     </div>
                                 ) : (
@@ -110,15 +110,15 @@ export default function PromotionalPopup() {
                                                 <Gift className="w-10 h-10 text-white" />
                                             </div>
                                             <div className="absolute -top-2 -right-2 bg-[#FFD600] text-black text-[10px] font-bold px-2 py-1 rounded-full shadow-lg border border-yellow-200">
-                                                LIMITED TIME
+                                                Join Now
                                             </div>
                                         </div>
 
                                         <h2 className="text-3xl font-bold font-[family-name:var(--font-sora)] text-white mb-3">
-                                            Win Big & Save 50%
+                                            Win a $100k Account
                                         </h2>
                                         <p className="text-gray-400 mb-8 max-w-[320px] leading-relaxed">
-                                            Enter your email to join our exclusive giveaway and instantly unlock a <span className="text-[#00C2FF] font-semibold">50% discount</span> on your first challenge.
+                                            Enter your email and get the chance to win a <span className="text-[#00C2FF] font-semibold">$100k account</span> in our giveaway.
                                         </p>
 
                                         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
@@ -142,7 +142,7 @@ export default function PromotionalPopup() {
                                                     <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                                 ) : (
                                                     <>
-                                                        Unlock 50% Off <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                                        Enter Giveaway <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                                     </>
                                                 )}
                                             </button>

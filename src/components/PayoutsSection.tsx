@@ -142,10 +142,8 @@ export default function PayoutsSection() {
                             <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
                             Updating live from Blockchain
                         </div>
-                        <div className="font-mono text-white/40">
-                            {/* Only show count if we actually have payouts */}
-                            {payouts.length > 0 ? `Items Found: ${payouts.length}` : 'Searching blockchain...'}
-                        </div>
+                        {/* Only show count if we actually have payouts */}
+
                     </div>
                 </StaggerContainer>
 

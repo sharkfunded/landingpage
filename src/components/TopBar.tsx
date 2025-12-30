@@ -53,7 +53,7 @@ export default function TopBar() {
         >
             <div className="w-full max-w-[1920px] h-full flex items-center justify-between mx-auto">
 
-                {/* ================= MOBILE ================= */}
+               
                 {/* ================= MOBILE ================= */}
                 <div className="flex md:hidden w-full overflow-hidden items-center text-white relative h-full mask-linear-fade">
                     <div className="flex animate-scroll-left w-fit whitespace-nowrap">
