@@ -6,8 +6,9 @@ import Navbar from "@/components/Navbar";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
+import { blogPosts } from "../blogData";
 
 // Configure Edge Runtime for Cloudflare Pages
 export const runtime = 'edge';
@@ -16,10 +17,22 @@ export default function BlogPostPage() {
     const params = useParams();
     const slug = params?.slug as string;
 
-    // Formatting slug for display title (e.g., "my-post-title" -> "My Post Title")
-    const displayTitle = slug
-        ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-        : "Loading...";
+    const post = blogPosts.find((p) => p.slug === slug);
+
+    if (!post) {
+        return (
+            <main className="min-h-screen flex items-center justify-center bg-[#040822] text-white">
+                <RevealSection>
+                    <div className="text-center">
+                        <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
+                        <Link href="/blog" className="text-blue-400 hover:text-blue-300 underline">
+                            Return to Blog
+                        </Link>
+                    </div>
+                </RevealSection>
+            </main>
+        );
+    }
 
     return (
         <main className="relative w-full min-h-screen bg-white overflow-x-hidden">
@@ -79,13 +92,13 @@ export default function BlogPostPage() {
                     <div className="relative z-10 max-w-[900px]">
                         <RevealSection>
                             <div className="inline-block px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-bold text-sm mb-6 font-[family-name:var(--font-sora)]">
-                                Trading Insights
+                                {post.category}
                             </div>
                             <h1 className="text-[clamp(32px,5vw,64px)] font-bold text-white mb-6 font-[family-name:var(--font-sora)] leading-tight tracking-tight">
-                                {displayTitle}
+                                {post.title}
                             </h1>
                             <div className="flex items-center justify-center gap-4 text-gray-400 text-sm md:text-base font-[family-name:var(--font-sora)]">
-                                <span>December 20, 2024</span> // Mock Date
+                                <span>{post.date}</span>
                                 <span className="w-1 h-1 bg-gray-600 rounded-full"></span>
                                 <span>5 Min Read</span>
                             </div>
@@ -96,33 +109,9 @@ export default function BlogPostPage() {
 
             {/* Article Content */}
             <div className="relative w-full bg-white z-20 py-20 px-4">
-                <article className="max-w-[800px] mx-auto prose prose-lg prose-headings:font-[family-name:var(--font-sora)] prose-p:font-[family-name:var(--font-sora)] prose-p:font-light prose-p:text-gray-600 prose-headings:text-[#040822]">
+                <article className="max-w-[800px] mx-auto prose prose-lg prose-headings:font-[family-name:var(--font-sora)] prose-p:font-[family-name:var(--font-sora)] prose-p:font-light prose-p:text-gray-600 prose-headings:text-[#040822] prose-li:text-gray-600 prose-strong:text-[#040822]">
                     <RevealSection delay={0.1}>
-                        <p className="lead text-xl md:text-2xl text-gray-500 font-light mb-8">
-                            This is a placeholder for the article content. In a real implementation, you would fetch the content for <strong>{slug}</strong> from your CMS or local markdown files.
-                        </p>
-
-                        <h2>Introduction</h2>
-                        <p>
-                            Proprietary trading offers a unique opportunity for skilled traders to leverage significant capital without risking their own funds. However, success in this field requires more than just a profitable strategy; it demands disciplined risk management and emotional control.
-                        </p>
-
-                        <blockquote>
-                            "The goal of a successful trader is to make the best trades. Money is secondary." – Alexander Elder
-                        </blockquote>
-
-                        <h2>Key Takeaways</h2>
-                        <ul>
-                            <li>Understand your risk tolerance before starting a challenge.</li>
-                            <li>Develop a solid trading plan and stick to it.</li>
-                            <li>Use stop losses to protect your capital.</li>
-                            <li>Review your trades regularly to identify areas for improvement.</li>
-                        </ul>
-
-                        <h2>Conclusion</h2>
-                        <p>
-                            By mastering the psychological aspects of trading and adhering to strict risk management rules, you can significantly increase your chances of passing a prop firm challenge and maintaining a funded account.
-                        </p>
+                        {post.content}
 
                         <div className="mt-12 pt-8 border-t border-gray-100">
                             <Link href="/blog" className="inline-flex items-center text-blue-600 font-bold font-[family-name:var(--font-sora)] hover:-translate-x-1 transition-transform">

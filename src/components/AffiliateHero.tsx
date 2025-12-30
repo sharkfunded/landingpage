@@ -32,7 +32,7 @@ export default function AffiliateHero() {
                 style={{ mixBlendMode: 'screen' }}
             >
                 <img
-                    src="/assets/reviews-rays.webp"
+                    src="/assets/reviews-rays.png"
                     alt=""
                     className="absolute"
                     style={{
@@ -58,7 +58,7 @@ export default function AffiliateHero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        Shark Partner Protocol
+                        Shark Funded Affiliate
                     </motion.h1>
 
                     <motion.p

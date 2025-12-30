@@ -77,7 +77,7 @@ export default function PhaseTable({ selectedChallenge, data, selectedSize }: Ph
 
                                 <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                                     <div className="flex items-baseline gap-3">
-                                        <span className="text-lg text-white/40 line-through decoration-white/40 decoration-1">{data.oldPrice}</span>
+
                                         <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">{data.price}</span>
                                     </div>
                                     <Link href={`https://dashboard.sharkfunded.com/checkoutpage?plan=${selectedSize}`}>

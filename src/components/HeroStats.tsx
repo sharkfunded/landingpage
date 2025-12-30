@@ -27,7 +27,7 @@ const HeroStats = () => {
                 </div>
 
                 {/* Item 3: 24 Hour Payout  */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left relative flex-1 md:px-4 lg:px-6 lg:border-r border-white/10">
+                <div className="flex flex-col items-center md:items-start text-center md:text-left relative flex-1 md:px-4 lg:px-6 border-white/10">
                     <div className="flex items-baseline gap-1">
                         <span className="font-bold font-[family-name:var(--font-sora)] leading-[1.1] bg-gradient-to-b from-white to-[#0084FF] bg-clip-text text-transparent text-[16px] md:text-[17px] lg:text-[19px]" style={{ fontSize: 'clamp(16px, 1.6vw, 19px)' }}>
                             24
@@ -41,8 +41,8 @@ const HeroStats = () => {
                     </span>
                 </div>
 
-                {/* Item 4: Minimum Trading Days - Hidden on tablets/laptops (md), shown on large desktops (lg+) */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left relative flex-1 md:hidden lg:flex lg:pl-6">
+                {/* Item 4: Minimum Trading Days - Visible only on mobile (hidden on md+) */}
+                <div className="flex flex-col items-center md:items-start text-center md:text-left relative flex-1 md:hidden">
                     <span className="font-bold font-[family-name:var(--font-sora)] leading-[1.1] bg-gradient-to-b from-white to-[#0084FF] bg-clip-text text-transparent text-[16px] md:text-[17px] lg:text-[19px]" style={{ fontSize: 'clamp(16px, 1.6vw, 19px)' }}>
                         No Minimum
                     </span>

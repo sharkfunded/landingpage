@@ -36,7 +36,7 @@ export default function MobileRulesCard({ selectedChallenge, isPrime, data, sele
         <div className="w-full bg-[#151932]/30 backdrop-blur-sm rounded-3xl p-6 border border-white/5 shadow-2xl relative overflow-hidden mt-2">
             {/* Price Header */}
             <div className="flex flex-col items-center mb-6">
-                <span className="text-white/40 text-sm mb-1 line-through">{data.oldPrice}</span>
+
                 <span className="text-4xl font-bold text-white mb-4">{data.price}</span>
                 <Link href={`https://dashboard.sharkfunded.com/checkoutpage?plan=${selectedSize}`} className="w-full">
                     <button className="w-full py-3.5 rounded-xl bg-blue-600 font-bold text-white shadow-lg shadow-blue-600/20 active:scale-95 transition-transform">

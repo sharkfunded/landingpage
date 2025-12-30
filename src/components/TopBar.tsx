@@ -54,9 +54,26 @@ export default function TopBar() {
             <div className="w-full max-w-[1920px] h-full flex items-center justify-between mx-auto">
 
                 {/* ================= MOBILE ================= */}
-                <div className="flex md:hidden w-full justify-between items-center text-white">
-                    <span className="font-semibold text-xs">50% OFF</span>
-                    <span className="text-[10px] opacity-80">Tap details</span>
+                {/* ================= MOBILE ================= */}
+                <div className="flex md:hidden w-full overflow-hidden items-center text-white relative h-full mask-linear-fade">
+                    <div className="flex animate-scroll-left w-fit whitespace-nowrap">
+                        {/* First Copy */}
+                        <div className="flex items-center gap-8 px-4">
+                            {[...Array(4)].map((_, i) => (
+                                <span key={i} className="text-xs font-semibold tracking-wide">
+                                    50% New Year Offer <span className="text-[#a6b9ef] font-bold">NY50</span>
+                                </span>
+                            ))}
+                        </div>
+                        {/* Second Copy (for seamless loop) */}
+                        <div className="flex items-center gap-8 px-4">
+                            {[...Array(4)].map((_, i) => (
+                                <span key={`dup-${i}`} className="text-xs font-semibold tracking-wide">
+                                    50% New Year Offer <span className="text-[#a6b9ef] font-bold">NY50</span>
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 {/* ================= DESKTOP LEFT ================= */}

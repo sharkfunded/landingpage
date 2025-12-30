@@ -96,6 +96,11 @@
   animation: scroll-right 40s linear infinite;
 }
 
+.mask-linear-fade {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

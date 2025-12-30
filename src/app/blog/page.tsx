@@ -8,37 +8,11 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 
-// Mock Data for Blog Posts
-const blogPosts = [
-    {
-        slug: "mastering-prop-trading-psychology",
-        title: "Mastering Prop Trading Psychology",
-        excerpt: "Discover the mindset secrets that separate profitable traders from the rest. Learn how to manage emotions and stay disciplined.",
-        date: "December 20, 2024",
-        category: "Trading Psychology",
-        image: "/assets/blog-thumbnail.png"
-    },
-    {
-        slug: "risk-management-strategies",
-        title: "Essential Risk Management Strategies",
-        excerpt: "Protect your capital with these proven risk management techniques tailored for prop firm evaluations.",
-        date: "December 18, 2024",
-        category: "Others",
-        image: "/assets/blog-thumbnail.png"
-    },
-    {
-        slug: "understanding-market-structure",
-        title: "Understanding Market Structure",
-        excerpt: "A deep dive into identifying trends, support, and resistance levels to improve your trade entries and exits.",
-        date: "December 15, 2024",
-        category: "Prop Trading",
-        image: "/assets/blog-thumbnail.png"
-    }
-];
+import { blogPosts } from "./blogData";
 
 export default function BlogPage() {
     const [activeCategory, setActiveCategory] = React.useState('View all');
-    const categories = ['View all', 'Trading Psychology', 'Prop Trading', 'Others'];
+    const categories = ['View all', 'Trading Psychology', 'Risk Management', 'Prop Trading'];
 
     const filteredPosts = activeCategory === 'View all'
         ? blogPosts

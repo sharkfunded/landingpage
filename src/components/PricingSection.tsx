@@ -8,6 +8,7 @@ import { challenges } from './pricing/data/challenges';
 import ChallengeCards from './pricing/components/ChallengeCards';
 import MobileRulesCard from './pricing/components/MobileRulesCard';
 import PhaseTable from './pricing/components/PhaseTable';
+import PaymentMethods from './pricing/components/PaymentMethods';
 
 export default function PricingSection() {
     const [activeTab, setActiveTab] = useState<'Forex' | 'Futures'>('Forex');
@@ -189,6 +190,9 @@ export default function PricingSection() {
                                 selectedSize={selectedSize}
                             />
 
+                            <PaymentMethods />
+
+
                         </div>
 
                         {/* --- DESKTOP VIEW --- */}
@@ -287,6 +291,8 @@ export default function PricingSection() {
                                     data={data}
                                     selectedSize={selectedSize}
                                 />
+
+                                <PaymentMethods />
 
                             </div>
                         </div>
