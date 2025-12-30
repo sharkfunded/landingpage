@@ -119,7 +119,7 @@ export async function GET() {
     });
 
     // Map to frontend format
-    const formattedPayouts = filteredPayouts.slice(0, 40).map(p => ({
+    const formattedPayouts = filteredPayouts.map(p => ({
         amount: formatCurrency(p.amount), // Formatted string for UI
         numericAmount: parseFloat(p.amount), // Raw number for math/table
         user: p.user_name || maskAddress(p.recipient_address),
