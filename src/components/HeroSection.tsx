@@ -137,13 +137,13 @@ export default function HeroSection() {
                         <StaggerItem>
                             <div className="flex flex-row items-center sm:items-start mt-3 md:mt-3 origin-left w-fit sm:w-auto md:scale-100 origin-top-left md:origin-left">
                                 {/* Get Started Button - COMPACT SIZE */}
-                                <button className="relative group overflow-hidden rounded-full min-w-[120px] md:min-w-[140px] px-6 py-3 md:px-6 md:py-3 transition-transform hover:scale-105 active:scale-95">
+                                <a href="https://dashboard.sharkfunded.com/register" className="relative group overflow-hidden rounded-full min-w-[120px] md:min-w-[140px] px-6 py-3 md:px-6 md:py-3 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center">
                                     <div className="absolute inset-0 bg-gradient-to-r from-[rgb(92,176,255)] to-[rgb(0,31,99)] opacity-100" />
                                     <div className="absolute inset-0 shadow-[inset_0px_4px_13.4px_0px_#79c3ff] rounded-full pointer-events-none" />
                                     <span className="relative z-10 flex items-center justify-center w-full h-full text-[clamp(14px,1vw,16px)] font-normal text-white font-sans tracking-[-0.05em]">
                                         Get Started
                                     </span>
-                                </button>
+                                </a>
                             </div>
                         </StaggerItem>
 

@@ -79,13 +79,13 @@ export default function RewardsSectionTwo() {
                     {/* Strip 1: Scroll Left */}
                     <StaggerItem className="w-full relative group">
                         <div className="flex gap-6 animate-scroll-fast w-max will-change-[transform] transform-gpu">
-                            {/* Cycle through certs 1-6 */}
+                            {/* Cycle through certs 1-8 */}
                             {[...Array(4)].map((_, rep) => (
                                 <React.Fragment key={rep}>
-                                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                         <div key={`s1-${rep}-${num}`} className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center h-[160px] w-auto">
                                             <img
-                                                src={`/assets/payout_${num}.png?v=whatsapp`}
+                                                src={`/assets/payout_${num}.webp?v=whatsapp`}
                                                 alt={`Certificate ${num}`}
                                                 className="h-full w-auto object-contain opacity-50 transition-all group-hover:opacity-100 group-hover:scale-[1.02] backface-hidden"
                                                 loading="lazy"
@@ -102,13 +102,13 @@ export default function RewardsSectionTwo() {
                     {/* Strip 2: Scroll Right */}
                     <StaggerItem className="w-full relative group">
                         <div className="flex gap-6 animate-scroll-fast-reverse w-max will-change-[transform] transform-gpu">
-                            {/* Cycle through certs 7-12 */}
+                            {/* Cycle through certs 9-16 */}
                             {[...Array(4)].map((_, rep) => (
                                 <React.Fragment key={rep}>
-                                    {[7, 8, 9, 10, 11, 12].map((num) => (
+                                    {[9, 10, 11, 12, 13, 14, 15, 16].map((num) => (
                                         <div key={`s2-${rep}-${num}`} className="bg-white p-2 rounded-xl shadow-md border border-gray-100 flex items-center justify-center h-[160px] w-auto">
                                             <img
-                                                src={`/assets/payout_${num}.png?v=whatsapp`}
+                                                src={`/assets/payout_${num}.webp?v=whatsapp`}
                                                 alt={`Certificate ${num}`}
                                                 className="h-full w-auto object-contain opacity-90 transition-all group-hover:opacity-100 group-hover:scale-[1.02] backface-hidden"
                                                 loading="lazy"
@@ -125,13 +125,13 @@ export default function RewardsSectionTwo() {
                     {/* Strip 3: Scroll Left */}
                     <StaggerItem className="w-full relative group">
                         <div className="flex gap-6 animate-scroll-fast w-max will-change-[transform] transform-gpu">
-                            {/* Cycle through certs 1-12 mix */}
+                            {/* Cycle through certs 17-23 */}
                             {[...Array(4)].map((_, rep) => (
                                 <React.Fragment key={rep}>
-                                    {[1, 3, 5, 7, 9, 11].map((num) => (
+                                    {[17, 18, 19, 20, 21, 22, 23].map((num) => (
                                         <div key={`s3-${rep}-${num}`} className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center h-[160px] w-auto">
                                             <img
-                                                src={`/assets/payout_${num}.png?v=whatsapp`}
+                                                src={`/assets/payout_${num}.webp?v=whatsapp`}
                                                 alt={`Certificate ${num}`}
                                                 className="h-full w-auto object-contain opacity-50 transition-all group-hover:opacity-100 group-hover:scale-[1.02] backface-hidden"
                                                 loading="lazy"

@@ -11,9 +11,7 @@ const payoutImages = [
     "/assets/payout_7.webp?v=whatsapp",
     "/assets/payout_8.webp?v=whatsapp",
     "/assets/payout_9.webp?v=whatsapp",
-    "/assets/payout_10.webp?v=whatsapp",
-    "/assets/payout_11.webp?v=whatsapp",
-    "/assets/payout_12.webp?v=whatsapp"
+    "/assets/payout_10.webp?v=whatsapp"
 ];
 
 const initialPayouts = [
@@ -26,8 +24,7 @@ const initialPayouts = [
     { amount: "$688.96", user: "Sudarshan Pandey", img: payoutImages[6] },
     { amount: "$194.02", user: "Sujt Singh", img: payoutImages[7] },
     { amount: "$4,855", user: "Krushna Belhekar", img: payoutImages[8] },
-    { amount: "$580.2", user: "Vishal Gaikwad", img: payoutImages[9] },
-    { amount: "$288", user: "keshav raj singh", img: payoutImages[10] },
+    { amount: "$580.2", user: "Vishal Gaikwad", img: payoutImages[9] }
 ];
 
 export default function PayoutsTicker() {

@@ -40,7 +40,37 @@ export default function TestimonialsSection() {
             name: "ksha",
             country: "🇮🇳",
             title: "Good firm...",
-            text: "NGL, Shark Funded is one of the good firms I have traded with, I can say it’s in the top 5. Their rules are a little hard, but as an A book prop firm, I understand this and why the rules are like that. I have taken 2 payouts with them and they were smooth. Overall, a decent firm....",
+            text: "NGL, Shark Funded is one of the good firms I have traded with, I can say it's in the top 5. Their rules are a little hard, but as an A book prop firm, I understand this and why the rules are like that. I have taken 2 payouts with them and they were smooth. Overall, a decent firm....",
+        },
+        {
+            name: "Xavier Fernandez",
+            country: "🇺🇸",
+            title: "I have enjoyed working at Shark Funded",
+            text: "I have enjoyed working at Shark Funded. Their distribution is something I have never witnessed before and their support staff is excellent. I even got my first payout. Thanks to Abdul It can definitely be said that Shark Funded is the best prop firm in the market and it is a game changer to anyone who trades everyday.",
+        },
+        {
+            name: "gafoor Khan",
+            country: "🇮🇳",
+            title: "Recently I purchase account great…",
+            text: "Recently I purchase account great experience with shark funded. Everything is very Aslo I received my fees refund with 3 payout . average time i received my payout 8hr to 16hr this is crazy. Thanks shark funded for give best support",
+        },
+        {
+            name: "Shifa khan",
+            country: "🇮🇳",
+            title: "Since this was a new firm and never…",
+            text: "Since this was a new firm and never thought theyd be legit but after the third payout that I have received I am convinced they are doing very genuine work. Price are affordable and definitely give it a try. Best support team they have whatsapp support aslo discord support",
+        },
+        {
+            name: "Anas Sahim",
+            country: "🇦🇪",
+            title: "I bought an account and had an…",
+            text: "I bought an account and had an excellent experience, took my payout 3 days back. The team was very supportive",
+        },
+        {
+            name: "Affu Khan",
+            country: "🇮🇳",
+            title: "Best prop firm 💪",
+            text: "Best prop firm 💪. Smooth trading smooth payout and best spread, easy rules. Best part daily payout. Also best support team",
         },
     ];
 
