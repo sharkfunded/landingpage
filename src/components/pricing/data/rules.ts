@@ -1,15 +1,20 @@
 
-export const getInstantRules = () => [
-    { label: 'Daily Drawdown', val: '4%' },
-    { label: 'Max Drawdown', val: '7%' },
-    { label: 'Payout Frequency', val: 'Weekly' },
-    { label: 'Rewards Split', val: '80%' },
-    { label: 'Trading Leverage', val: 'Up to 1:100' },
-    { label: 'Instruments', val: 'Fx, Commodities, Indices, Stock, Crypto' },
-    { label: 'Weekend Trading', val: 'Allowed' },
-    { label: 'Consistency Rule', val: 'Yes' },
-    { label: '1% Max Floating Rule', val: 'Yes' }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getInstantRules = (data: any) => {
+    const rules = [
+        { label: 'Daily Drawdown', val: data?.dailyLoss || '4%' },
+        { label: 'Max Drawdown', val: data?.maxLoss || '7%' },
+        { label: 'Payout Frequency', val: 'Weekly' },
+        { label: 'Rewards Split', val: '80%' },
+        { label: 'Trading Leverage', val: 'Up to 1:100' },
+        { label: 'Instruments', val: 'Fx, Commodities, Indices, Stock, Crypto' },
+        { label: 'Weekend Trading', val: 'Allowed' },
+        { label: 'Consistency Rule', val: data?.consistencyRule || 'Yes' },
+        { label: '1% Max Floating Rule', val: 'Yes' }
+    ];
+
+    return rules.filter(r => r.val !== '-');
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getDailyPayoutsRules = (data: any) => [
