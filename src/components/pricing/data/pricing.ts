@@ -23,12 +23,12 @@ export const pricingConfig = {
 
     },
     InstantLite: {
-        '3K': { price: '$34', maxLoss: '3%', target1: '-', target2: '-' },
-        '6K': { price: '$59',  maxLoss: '3%', target1: '-', target2: '-' },
-        '12K': { price: '$89',  maxLoss: '3%', target1: '-', target2: '-' },
-        '25K': { price: '$249', maxLoss: '3%', target1: '-', target2: '-' },
-        '50K': { price: '$499', maxLoss: '3%', target1: '-', target2: '-' },
-        '100K': { price: '$799',  maxLoss: '3%', target1: '-', target2: '-' },
+        '3K': { price: '$34', dailyLoss: '-', maxLoss: '3%', target1: '-', target2: '-', consistencyRule: 'No' },
+        '6K': { price: '$59', dailyLoss: '-', maxLoss: '3%', target1: '-', target2: '-', consistencyRule: 'No' },
+        '12K': { price: '$89', dailyLoss: '-', maxLoss: '3%', target1: '-', target2: '-', consistencyRule: 'No' },
+        '25K': { price: '$249', dailyLoss: '-', maxLoss: '3%', target1: '-', target2: '-', consistencyRule: 'No' },
+        '50K': { price: '$499', dailyLoss: '-', maxLoss: '3%', target1: '-', target2: '-', consistencyRule: 'No' },
+        '100K': { price: '$799', dailyLoss: '-', maxLoss: '3%', target1: '-', target2: '-', consistencyRule: 'No' },
     },
     InstantPrime: {
         '5K': { price: '$49', dailyLoss: '4%', maxLoss: '7%', target1: '-', target2: '-' },
