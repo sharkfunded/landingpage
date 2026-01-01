@@ -17,7 +17,7 @@ export const challenges = [
     {
         title: 'Two Step Challenge',
         type: '2-Step',
-        features: ['Standard evaluation', '10% max drawdown'],
+        features: ['Standard evaluation', '6% max drawdown'],
         badge: null,
         badgeColor: ''
     },
