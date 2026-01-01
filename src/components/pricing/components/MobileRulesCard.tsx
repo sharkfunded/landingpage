@@ -22,7 +22,7 @@ export default function MobileRulesCard({ selectedChallenge, isPrime, data, sele
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let rows: any[] = [];
     if (selectedChallenge === 'Instant Funding') {
-        rows = getInstantRules();
+        rows = getInstantRules(data);
     } else if (selectedChallenge === 'Daily Payouts') {
         rows = getDailyPayoutsRules(data);
     } else {
