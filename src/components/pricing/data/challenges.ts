@@ -10,7 +10,7 @@ export const challenges = [
     {
         title: 'One-Step Challenge',
         type: '1-Step',
-        features: ['Only 8% profit target', 'Get Funded fast'],
+        features: ['Only 9% profit target', 'Get Funded fast'],
         badge: 'Popular',
         badgeColor: 'bg-[#292D32] text-white'
     },
