@@ -227,16 +227,16 @@ export default function PricingSection() {
                             >
                                 {/* 0. NEW: Big Prime/Lite Toggle */}
                                 <div className="w-full flex justify-center mb-10">
-                                    <div className="bg-[#0f1226] p-2 rounded-full inline-flex gap-2 border border-white/5 relative z-10 shadow-xl">
+                                    <div className="bg-[#0f1226] p-2 rounded-full inline-flex items-center gap-2 border border-white/5 relative z-10 shadow-xl">
                                         <button
                                             onClick={() => setIsPrime(true)}
-                                            className={`px-12 py-4 rounded-full text-lg font-bold transition-all duration-300 flex items-center gap-2 ${isPrime ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                                            className={`px-12 py-4 rounded-full text-lg font-bold transition-all duration-300 ${isPrime ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.5)]' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                                         >
                                             Shark Funded Prime
                                         </button>
                                         <button
                                             onClick={() => setIsPrime(false)}
-                                            className={`px-12 py-4 rounded-full text-lg font-bold transition-all duration-300 ${!isPrime ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                                            className={`px-12 py-4 rounded-full text-lg font-bold transition-all duration-300 ${!isPrime ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.5)]' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                                         >
                                             Shark Funded Lite
                                         </button>

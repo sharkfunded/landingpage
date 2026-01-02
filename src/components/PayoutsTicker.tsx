@@ -3,28 +3,26 @@ import Image from "next/image";
 
 const payoutImages = [
     "/assets/payout_1.webp?v=whatsapp",
-    "/assets/payout_2.webp?v=whatsapp",
+    "/assets/payout_19.webp?v=whatsapp",
     "/assets/payout_3.webp?v=whatsapp",
     "/assets/payout_4.webp?v=whatsapp",
     "/assets/payout_5.webp?v=whatsapp",
-    "/assets/payout_6.webp?v=whatsapp",
-    "/assets/payout_7.webp?v=whatsapp",
+    "/assets/payout_20.webp?v=whatsapp",
     "/assets/payout_8.webp?v=whatsapp",
     "/assets/payout_9.webp?v=whatsapp",
     "/assets/payout_10.webp?v=whatsapp"
 ];
 
 const initialPayouts = [
-    { amount: "$470.37", user: "Shekhar Kohil", img: payoutImages[0] },
-    { amount: "$392", user: "Shubham Mondal", img: payoutImages[1] },
-    { amount: "$306.81", user: "Kaushal Thakur", img: payoutImages[2] },
-    { amount: "$583.2", user: "Hari Rajput", img: payoutImages[3] },
-    { amount: "$792", user: "Jayant Kumar", img: payoutImages[4] },
-    { amount: "$1075", user: "Tanishq", img: payoutImages[5] },
-    { amount: "$688.96", user: "Sudarshan Pandey", img: payoutImages[6] },
-    { amount: "$194.02", user: "Sujt Singh", img: payoutImages[7] },
-    { amount: "$4,855", user: "Krushna Belhekar", img: payoutImages[8] },
-    { amount: "$580.2", user: "Vishal Gaikwad", img: payoutImages[9] }
+    { amount: "$272", user: "Rabari Romil", img: payoutImages[0] },
+    { amount: "$96", user: "Pavan Kumar", img: payoutImages[1] },
+    { amount: "$244", user: "Jayant Kumar", img: payoutImages[2] },
+    { amount: "$156", user: "Shubham Ghodke", img: payoutImages[3] },
+    { amount: "$969.12", user: "Saksham Singh", img: payoutImages[4] },
+    { amount: "$108.8", user: "Mantavya Singh", img: payoutImages[5] },
+    { amount: "$160", user: "Yash Sathwara", img: payoutImages[6] },
+    { amount: "$292", user: "Sohail Ansari", img: payoutImages[7] },
+    { amount: "$180", user: "Tushar Damgude", img: payoutImages[8] }
 ];
 
 export default function PayoutsTicker() {

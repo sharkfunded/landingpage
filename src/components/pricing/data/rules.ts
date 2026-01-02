@@ -20,7 +20,7 @@ export const getInstantRules = (data: any) => {
 export const getDailyPayoutsRules = (data: any) => [
     { label: 'Profit Target', s1: data.target1, s2: data.target2, funded: '-' },
     { label: 'Daily Drawdown', s1: data.dailyLoss, s2: data.dailyLoss, funded: data.dailyLoss },
-    { label: 'Max Drawdown', s1: data.maxLoss, s2: data.maxLoss, funded: data.maxLoss },
+    { label: 'Max Drawdown', s1: data.maxLoss, s2: data.maxLoss, funded: '7%' },
     { label: 'Payout Frequency', s1: '-', s2: '-', funded: 'Daily' },
     { label: 'Trading Leverage', s1: 'upto 1:100', s2: 'upto 1:100', funded: 'upto 1:100' },
     { label: 'Instruments', s1: 'Fx, Commodities, Indices, Stock, Crypto', s2: 'Fx, Commodities, Indices, Stock, Crypto', funded: 'Fx, Commodities, Indices, Stock, Crypto' },

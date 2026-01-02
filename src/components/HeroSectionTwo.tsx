@@ -17,14 +17,12 @@ export default function HeroSectionTwo() {
                         {/* Triplicated list for seamless infinite scroll */}
                         {[...Array(4)].map((_, i) => (
                             <React.Fragment key={i}>
-                                
+
                                 <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">Wall Street Journal</span>
                                 <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">Yahoo Finance</span>
                                 <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">MetaTrader</span>
                                 <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">TradingView</span>
                                 <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">Reuters</span>
-                                <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">MetaStock</span>
-                                <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">NinjaTrader</span>
                                 <span className="text-lg md:text-xl font-bold text-gray-400 whitespace-nowrap">Bloomberg</span>
                             </React.Fragment>
                         ))}
