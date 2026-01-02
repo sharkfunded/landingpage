@@ -16,7 +16,7 @@ export const getInstantRules = (data: any) => {
     return rules.filter(r => r.val !== '-');
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const getDailyPayoutsRules = (data: any) => [
     { label: 'Profit Target', s1: data.target1, s2: data.target2, funded: '-' },
     { label: 'Daily Drawdown', s1: data.dailyLoss, s2: data.dailyLoss, funded: data.dailyLoss },
@@ -29,7 +29,7 @@ export const getDailyPayoutsRules = (data: any) => [
     { label: '1% Max Floating Rule', s1: '-', s2: '-', funded: 'Yes' }
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const getStandardRules = (data: any) => [
     { label: 'Profit Target', s1: data.target1, s2: data.target2, funded: '-' },
     { label: 'Profit Split', s1: '-', s2: '-', funded: '80%' },
