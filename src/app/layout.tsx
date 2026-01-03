@@ -3,7 +3,7 @@ import { Sora } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import IntercomWidget from "@/components/IntercomWidget";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { Suspense } from "react";
 
 const sora = Sora({
@@ -90,7 +90,7 @@ export default function RootLayout({
         {/* End Meta Pixel Code */}
 
         <Suspense fallback={null}>
-          <IntercomWidget />
+          <WhatsAppWidget />
         </Suspense>
         {children}
       </body>
