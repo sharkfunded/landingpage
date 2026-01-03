@@ -2,8 +2,10 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getInstantRules = (data: any) => {
     const rules = [
+        { label: 'Profit Target', val: data?.target1 || '-' },
         { label: 'Daily Drawdown', val: data?.dailyLoss || '4%' },
         { label: 'Max Drawdown', val: data?.maxLoss || '7%' },
+        { label: 'Validity', val: data?.validity || '-' },
         { label: 'Payout Frequency', val: 'Weekly' },
         { label: 'Rewards Split', val: '80%' },
         { label: 'Trading Leverage', val: 'Up to 1:100' },

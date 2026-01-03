@@ -16,6 +16,9 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "SharkFunded",
   description: "Join SharkFunded and start your trading journey.",
+  icons: {
+    icon: '/assets/shark-logo.svg',
+  },
 };
 
 export const viewport = {

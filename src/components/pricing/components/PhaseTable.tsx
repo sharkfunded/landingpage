@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { InformationCircleIcon } from '@heroicons/react/24/solid';
 import { getInstantRules, getDailyPayoutsRules, getStandardRules } from '../data/rules';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface PhaseTableProps {
@@ -49,7 +48,6 @@ export default function PhaseTable({ selectedChallenge, data, selectedSize }: Ph
                         <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
                             <td className="p-6 text-white font-medium flex items-center gap-2">
                                 {row.label}
-                                <InformationCircleIcon className="w-4 h-4 text-white/20" />
                             </td>
                             {selectedChallenge === 'Instant Funding' ? (
                                 <td colSpan={colSpan} className="p-6 text-center text-white/90 font-bold text-lg">{row.val}</td>
